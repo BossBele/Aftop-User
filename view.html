@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aftop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css">
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js"></script>
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Reenie+Beanie">
+    <!-- jQuery throttle-debounce -->
+    <script src="https://cdn.jsdelivr.net/gh/cowboy/jquery-throttle-debounce/jquery.ba-throttle-debounce.js" defer></script>
+    <!-- font-awesome -->
+    <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- sanitize.css https://unpkg.com/sanitize.css -->
+    <link href="https://cdn.jsdelivr.net/gh/csstools/sanitize.css@latest/sanitize.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- modenizr -->
+    <script src="js/modernizr.js" defer></script>
+    <!-- routing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-signals/1.0.0/js-signals.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossroads/0.12.2/crossroads.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/browserstate/history.js/scripts/bundled/html4+html5/native.history.js"></script>
+    <!-- numeral.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <!-- money.js -->
+    <script src="https://cdn.jsdelivr.net/gh/openexchangerates/money.js@latest/money.min.js"></script>
+    <style></style>
+</head>
+<body class="uk-container-large">
+    <header uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: nav-bar-shadow; cls-inactive: uk-navbar-transparent uk-position-top-left uk-position-z-index; top: section">
+        <nav class="uk-navbar-container uk-width-1-1" uk-navbar="mode: click">
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav uk-text-bold">
+                    <li class="uk-active"><a href="#">Logo</a></li>
+                    <li>
+                        <a href="#">Home</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#">Movies</a></li>
+                                <li><a href="#">Item</a></li>
+                                <li><a href="#">Item</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#toggle-animation" uk-toggle="target: #toggle-animation; animation: uk-animation-fade">Categories</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main id="content">
+        <section style="height:80px"></section>
+        <div style="border-top:1px solid #e0e0e0;">
+            <div class="uk-container">
+                <div id="toggle-animation" class="uk-tile uk-tile-default uk-padding-small">
+                    <div class="uk-position-relative" uk-slider="finite: true">
+                        <div class="uk-position-relative uk-slider-container uk-visible-toggle" tabindex="-1">
+                            <ul class="uk-slider-items uk-grid-small uk-grid">
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Latest</button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Action <span class="uk-badge" style="vertical-align:unset;"><small>0</small></span></button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Animation <span class="uk-badge" style="vertical-align:unset;"><small>0</small></span></button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Comedy <span class="uk-badge" style="vertical-align:unset;"><small>0</small></span></button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Latest</button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Action</button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Animation</button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Comedy</button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Latest</button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Action</button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Animation</button>
+                                </li>
+                                <li>
+                                    <button class="uk-button uk-button-default uk-border-rounded">Comedy</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="uk-position-center-left-out uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                        <a class="uk-position-center-right-out uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="uk-position-relative">
+            <div class="uk-cover-container uk-height-large uk-width-1-1">
+                <video src="media/yootheme-pro.mp4" autoplay loop muted playsinline uk-cover></video>
+            </div>
+        </section>
+        <section class="uk-section-small uk-section-default">
+            <div class="uk-container">
+                <div>
+                    <h4 class="uk-h4 uk-text-bold">Comments</h4>
+                </div>
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="Add Comment">
+                </div>
+                <div class="uk-padding uk-padding-remove-bottom">
+                    <div>
+                        <h5 class="uk-h5">John Mwaka &bull; 1 month ago</h5>
+                        <p>Gvsbv davkdjbvka</p>
+                        <div class="">
+                            <span class="uk-margin-right">
+                                <a class="fa fa-2x fa-thumbs-o-up uk-link-reset"></a>
+                                <span class="uk-badge"><small>0</small></span>
+                            </span>
+                            <span class="uk-margin-right">
+                                <a class="fa fa-2x fa-thumbs-down uk-link-reset"></a>
+                                <span class="uk-badge"><small>1</small></span>
+                            </span>
+                            <span class="uk-margin-right">
+                                <a class="fa fa-2x fa-comment uk-link-reset"></a>
+                                <span class="uk-badge"><small>1</small></span>
+                            </span>
+                        </div>
+                        <p>
+                            <a class="uk-link-muted">1 reply</a>
+                        </p>
+                        <hr>
+                    </div>
+                    <div>
+                        <h5 class="uk-h5">John Mwaka &bull; 1 month ago</h5>
+                        <p>Gvsbv davkdjbvka</p>
+                        <div class="">
+                            <span class="uk-margin-right">
+                                <a class="fa fa-2x fa-thumbs-o-up uk-link-reset"></a>
+                                <span class="uk-badge"><small>0</small></span>
+                            </span>
+                            <span class="uk-margin-right">
+                                <a class="fa fa-2x fa-thumbs-down uk-link-reset"></a>
+                                <span class="uk-badge"><small>1</small></span>
+                            </span>
+                            <span class="uk-margin-right">
+                                <a class="fa fa-2x fa-comment uk-link-reset"></a>
+                                <span class="uk-badge"><small>1</small></span>
+                            </span>
+                        </div>
+                        <p>
+                            <a class="uk-link-muted">1 reply</a>
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="uk-section-small uk-padding-remove-top uk-section-default">
+            <div class="uk-container">
+                <div>
+                    <h4 class="uk-h4 uk-text-bold">Related Videos</h4>
+                </div>
+                <div uk-slider="autoplay: true; autoplay-interval: 10000; finite: true;">
+                    <div class="uk-position-relative uk-visible-toggle uk-dark" tabindex="-1">
+                        <div class="uk-slider-container uk-background-default">
+                            <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
+                                <li>
+                                    <div class="uk-card uk-card-default uk-border-rounded">
+                                        <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
+                                            <img class="" src="https://via.placeholder.com/300" uk-cover>
+                                        </div>
+                                        <div class="uk-padding-small">
+                                            <h6 class="uk-h6 uk-margin-remove uk-text-center">Movie title</h6>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="uk-card uk-card-default uk-border-rounded">
+                                        <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
+                                            <img class="" src="https://via.placeholder.com/300" uk-cover>
+                                        </div>
+                                        <div class="uk-padding-small">
+                                            <h6 class="uk-h6 uk-margin-remove uk-text-center">Movie title</h6>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="uk-card uk-card-default uk-border-rounded">
+                                        <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
+                                            <img class="" src="https://via.placeholder.com/300" uk-cover>
+                                        </div>
+                                        <div class="uk-padding-small">
+                                            <h6 class="uk-h6 uk-margin-remove uk-text-center">Movie title</h6>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="uk-card uk-card-default uk-border-rounded">
+                                        <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
+                                            <img class="" src="https://via.placeholder.com/300" uk-cover>
+                                        </div>
+                                        <div class="uk-padding-small">
+                                            <h6 class="uk-h6 uk-margin-remove uk-text-center">Movie title</h6>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="uk-card uk-card-default uk-border-rounded">
+                                        <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
+                                            <img class="" src="https://via.placeholder.com/300" uk-cover>
+                                        </div>
+                                        <div class="uk-padding-small">
+                                            <h6 class="uk-h6 uk-margin-remove uk-text-center">Movie title</h6>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="uk-card uk-card-default uk-border-rounded">
+                                        <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
+                                            <img class="" src="https://via.placeholder.com/300" uk-cover>
+                                        </div>
+                                        <div class="uk-padding-small">
+                                            <h6 class="uk-h6 uk-margin-remove uk-text-center">Movie title</h6>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="uk-card uk-card-default uk-border-rounded">
+                                        <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
+                                            <img class="" src="https://via.placeholder.com/300" uk-cover>
+                                        </div>
+                                        <div class="uk-padding-small">
+                                            <h6 class="uk-h6 uk-margin-remove uk-text-center">Movie title</h6>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <a class="uk-position-center-left-out" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                        <a class="uk-position-center-right-out" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+    $(document).ready(function() {
+    });
+    </script>
+</body>
+</html>
