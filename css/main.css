@@ -30,6 +30,35 @@
     top: inherit !important;
     left: inherit !important;
 }
+.uk-offcanvas-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -270px;
+    box-sizing: border-box;
+    width: 270px;
+    padding: 20px 20px;
+    background: #fff;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.uk-offcanvas-bar p,
+.uk-offcanvas-bar div,
+.uk-offcanvas-bar span,
+.uk-offcanvas-bar ul li a,
+.uk-offcanvas-bar li {
+	color: #666 !important;
+	font-weight: initial;
+}
+/*.uk-navbar-nav>li.uk-active>a*/
+.uk-offcanvas-bar h1,
+.uk-offcanvas-bar h2,
+.uk-offcanvas-bar h3,
+.uk-offcanvas-bar h4,
+.uk-offcanvas-bar h5,
+.uk-offcanvas-bar h6 {
+	color: #333 !important;
+}
 /**/
 p {
 	line-height: 1.5;
