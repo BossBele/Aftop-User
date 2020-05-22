@@ -13,11 +13,12 @@ app.use(express.static(path.join(__dirname, 'public'))); //express to use public
 // routes 
 const indexRoute = require('./routes/index');
 
+var i = require('./public/js/index');
 
 //routes_app
 app.use('/', indexRoute);
 
-const server = 3000;
+const server = 8000;
 app.listen(server, () => {
     console.log(`Server running ....., On Port ${server}`);
 });

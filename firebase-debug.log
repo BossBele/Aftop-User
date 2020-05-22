@@ -1,0 +1,90 @@
+[debug] [2020-05-10T18:13:47.633Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T18:13:47.635Z] Command:       /home/godspeed/.nvm/versions/node/v14.0.0/bin/node /home/godspeed/.nvm/versions/node/v14.0.0/bin/firebase deploy --only hosting:flix-web
+[debug] [2020-05-10T18:13:47.636Z] CLI Version:   8.2.0
+[debug] [2020-05-10T18:13:47.636Z] Platform:      linux
+[debug] [2020-05-10T18:13:47.636Z] Node Version:  v14.0.0
+[debug] [2020-05-10T18:13:47.636Z] Time:          Sun May 10 2020 11:13:47 GMT-0700 (Pacific Daylight Time)
+[debug] [2020-05-10T18:13:47.636Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T18:13:47.636Z] 
+[debug] [2020-05-10T18:13:47.645Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T18:13:47.645Z] > authorizing via signed-in user
+[debug] [2020-05-10T18:13:47.646Z] [iam] checking project flix-10157 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-05-10T18:13:47.649Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/flix-10157:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-05-10T18:13:50.801Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 18:13:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1301","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T18:13:50.812Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/flix-10157  
+ 
+[debug] [2020-05-10T18:13:52.036Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 18:13:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'flix-10157'...
+[info] 
+[info] i  deploying hosting
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/flix-10157/overview
+[debug] [2020-05-10T18:13:52.944Z] TypeError: Cannot read property 'deploys' of undefined
+    at /home/godspeed/.nvm/versions/node/v14.0.0/lib/node_modules/firebase-tools/lib/deploy/index.js:84:36
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2020-05-10T18:14:04.705Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T18:14:04.708Z] Command:       /home/godspeed/.nvm/versions/node/v14.0.0/bin/node /home/godspeed/.nvm/versions/node/v14.0.0/bin/firebase deploy --only hosting:flix-web
+[debug] [2020-05-10T18:14:04.709Z] CLI Version:   8.2.0
+[debug] [2020-05-10T18:14:04.709Z] Platform:      linux
+[debug] [2020-05-10T18:14:04.709Z] Node Version:  v14.0.0
+[debug] [2020-05-10T18:14:04.709Z] Time:          Sun May 10 2020 11:14:04 GMT-0700 (Pacific Daylight Time)
+[debug] [2020-05-10T18:14:04.710Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T18:14:04.710Z] 
+[debug] [2020-05-10T18:14:04.718Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T18:14:04.718Z] > authorizing via signed-in user
+[debug] [2020-05-10T18:14:04.718Z] [iam] checking project flix-10157 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-05-10T18:14:04.722Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/flix-10157:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-05-10T18:14:07.074Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 18:14:06 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1292","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T18:14:07.082Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/flix-10157  
+ 
+[debug] [2020-05-10T18:14:10.441Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 18:14:08 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'flix-10157'...
+[info] 
+[info] i  deploying hosting
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/flix-10157/overview
+[debug] [2020-05-10T18:14:12.277Z] TypeError: Cannot read property 'deploys' of undefined
+    at /home/godspeed/.nvm/versions/node/v14.0.0/lib/node_modules/firebase-tools/lib/deploy/index.js:84:36
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2020-05-10T18:15:19.204Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T18:15:19.207Z] Command:       /home/godspeed/.nvm/versions/node/v14.0.0/bin/node /home/godspeed/.nvm/versions/node/v14.0.0/bin/firebase deploy --only hosting:flix-web
+[debug] [2020-05-10T18:15:19.207Z] CLI Version:   8.2.0
+[debug] [2020-05-10T18:15:19.207Z] Platform:      linux
+[debug] [2020-05-10T18:15:19.207Z] Node Version:  v14.0.0
+[debug] [2020-05-10T18:15:19.208Z] Time:          Sun May 10 2020 11:15:19 GMT-0700 (Pacific Daylight Time)
+[debug] [2020-05-10T18:15:19.208Z] ----------------------------------------------------------------------
+[debug] [2020-05-10T18:15:19.208Z] 
+[debug] [2020-05-10T18:15:19.217Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-10T18:15:19.217Z] > authorizing via signed-in user
+[debug] [2020-05-10T18:15:19.218Z] [iam] checking project flix-10157 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-05-10T18:15:19.221Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/flix-10157:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-05-10T18:15:25.024Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 18:15:22 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1307","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-10T18:15:25.034Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/flix-10157  
+ 
+[debug] [2020-05-10T18:15:28.776Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 10 May 2020 18:15:27 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'flix-10157'...
+[info] 
+[info] i  deploying hosting
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/flix-10157/overview
+[debug] [2020-05-10T18:15:32.476Z] TypeError: Cannot read property 'deploys' of undefined
+    at /home/godspeed/.nvm/versions/node/v14.0.0/lib/node_modules/firebase-tools/lib/deploy/index.js:84:36
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[error] 
+[error] Error: An unexpected error has occurred.
