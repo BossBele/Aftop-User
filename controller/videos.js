@@ -1,40 +1,36 @@
 const credential = require('./connection/firebase_credential');
+const db = credential.firestore();
 
 exports.all_videos = function () {
-    let db = credential.firestore();
     let category = "all";
     let collection = "series";
-    getVideos(db,category,collection);
+    return getVideos(db, category, collection);
 };
 
-function getVideos(db, category, collection){
+function getVideos(db, category, collection) {
 
     let ref;
 
-    if (collection == "movies") {
+    if (collection === "movies") {
 
-        if(category == "all" || category == "latest"){
+        if (category === "all" || category === "latest") {
             ref = db.collection(collection)
                 .where('launched', '==', true)
                 .orderBy('launch_date', 'desc');
-        }
-
-        else {
+        } else {
             ref = db.collection(collection)
                 .where('genre', '==', category)
                 .where('launched', '==', true)
                 .orderBy('launch_date', 'desc');
         }
 
-    } else if (collection == "series") {
+    } else if (collection === "series") {
 
-        if(category == "all" || category == "latest"){
+        if (category === "all" || category === "latest") {
 
             ref = db.collection(collection)
                 .orderBy('release_date', 'desc');
-        }
-
-        else {
+        } else {
             ref = db.collection(collection)
                 .where('genre', '==', category)
                 .orderBy('release_date', 'desc');
@@ -42,14 +38,6 @@ function getVideos(db, category, collection){
 
     }
 
+    return ref;
 
-    ref.get()
-        .then((snapshot) => {
-            snapshot.forEach((doc) => {
-                console.log(doc.id, '=>', doc.data());
-            });
-        })
-        .catch((err) => {
-            console.log('Error getting documents', err);
-        });
 }
