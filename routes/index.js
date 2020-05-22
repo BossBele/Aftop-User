@@ -1,18 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+var home = require('../controller/home');
 
-router.get('/', (req, res) => {
-    res.render('index.ejs');
-});
-router.get('/downloads', (req, res) => {
-    res.render('downloads.ejs');
-});
-router.get('/category', (req, res) => {
-    res.render('category.ejs');
-});
-router.get('/view', (req, res) => {
-    res.render('view.ejs');
-});
+router.get('/', home.index);
+router.get('/downloads', home.download);
+router.get('/category', home.category);
+router.get('/view', home.view);
 
 module.exports = router;
