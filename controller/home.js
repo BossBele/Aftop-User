@@ -3,7 +3,7 @@ exports.index = function (request, response) {
     let reference = videos.all_videos();
     let all_videos = [];
 
-    reference[0].get()
+    reference.get()
         .then((snapshot) => {
             arrayObject(snapshot);
         })
