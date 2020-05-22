@@ -18,7 +18,8 @@ var i = require('./public/js/index');
 //routes_app
 app.use('/', indexRoute);
 
-const server = 8000;
+const server = 3000;
+const server = process.env.PORT || 3000;
 app.listen(server, () => {
     console.log(`Server running ....., On Port ${server}`);
 });
