@@ -1,5 +1,6 @@
 const credential = require('./connection/firebase_credential');
 const db = credential.firestore();
+exports.storage = credential.storage().bucket();
 
 exports.all_videos = function () {
     let category = "all";
