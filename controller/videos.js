@@ -8,6 +8,13 @@ exports.all_videos = function () {
     return getVideos(db, category, collection);
 };
 
+exports.series = function (series_id) {
+    series = db.collection('series').where('series_id','==',series_id);
+
+    return series;
+
+}
+
 function getVideos(db, category, collection) {
 
     let ref;

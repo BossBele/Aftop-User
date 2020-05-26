@@ -60,5 +60,52 @@ exports.category = function (request, response) {
 };
 
 exports.view = function (request, response) {
-    response.render('view.ejs')
+    
+    let reference = videos.series(request.params.movie_id);
+    let series = [];
+    let tokens = null;
+    let original_name = null;
+    let bucket = videos.storage;
+
+    reference.get()
+        .then((snapshot) => {
+            arrayObject(snapshot);
+        })
+        .catch((err) => {
+            console.log('Error getting documents', err);
+        });
+
+        function arrayObject(snapshot) {
+            snapshot.forEach((doc) => {
+                series.push(doc.data())
+            });
+
+            let count = 0;
+            series.forEach((data) => {
+                bucket.file(data.trailer).get().then(function (data) {
+                    bindToken(data,count,series);
+                    count++;
+                });
+            });
+        }
+
+        function bindToken(data,index,series) {
+            const file = data[0];
+            series.forEach((info)=>{
+               if (info.trailer === file.name){
+                   tokens = file.metadata.metadata.firebaseStorageDownloadTokens;
+                   original_name = file.name.split('/')[1];
+                   info.xxx = tokens;
+                   info.file_name = original_name;
+               }
+            });
+
+            if (series.length === index+1){
+                response.render('view.ejs', {
+                    video: series
+                });
+            }
+
+        }
+
 };
