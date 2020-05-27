@@ -7,9 +7,15 @@ exports.all_videos = function () {
 };
 
 exports.series = function (series_id) {
-    series = db.collection('series').where('series_id','==',series_id);
+    let check = series_id.split('_');
 
-    return series;
+    if (check[0] === "movie") {
+        trailer = db.collection('movies').where('video_id','==',series_id);
+    }else{
+        trailer = db.collection('series').where('series_id','==',series_id);
+    }
+
+    return trailer;
 
 }
 
