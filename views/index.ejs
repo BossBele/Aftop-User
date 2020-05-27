@@ -257,9 +257,9 @@
             >
               <div class="uk-slider-container uk-background-default">
                 <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
-                  <% videos.forEach(function(video){ %>
+                  <% movies_videos.forEach(function(video){ %>
                   <li>
-                    <a href="/view/<%= video.series_id %>">
+                    <a href="/view/<%= video.video_id %>">
                       <div
                         class="uk-card uk-card-default uk-border-rounded uk-card-hover"
                       >
@@ -268,7 +268,7 @@
                         >
                           <img
                             class=""
-                            src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.xxx %>"
+                            src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
                             uk-cover
                           />
                         </div>
@@ -304,155 +304,37 @@
           <div>
             <h4 class="uk-h4 uk-text-bold">Latest Series</h4>
           </div>
-          <div
-            uk-slider="autoplay: true; autoplay-interval: 10000; finite: true;"
-          >
+          <div uk-slider="finite: true;">
             <div
               class="uk-position-relative uk-visible-toggle uk-dark"
               tabindex="-1"
             >
               <div class="uk-slider-container uk-background-default">
                 <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
+                  <% series_videos.forEach(function(video){ %>
                   <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
+                    <a href="/view/<%= video.series_id %>">
                       <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
+                        class="uk-card uk-card-default uk-border-rounded uk-card-hover"
                       >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
+                        <div
+                          class="uk-cover-container uk-border-top-rounded slider-movie-art"
+                        >
+                          <img
+                            class=""
+                            src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
+                            uk-cover
+                          />
+                        </div>
+                        <div class="uk-padding-small">
+                          <h6 class="uk-h6 uk-margin-remove uk-text-center">
+                            <%= video.name %>
+                          </h6>
+                        </div>
                       </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
+                    </a>
                   </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
+                  <% }) %>
                 </ul>
               </div>
               <a
@@ -576,155 +458,37 @@
           <div>
             <h4 class="uk-h4 uk-text-bold">Action</h4>
           </div>
-          <div
-            uk-slider="autoplay: true; autoplay-interval: 10000; finite: true;"
-          >
+          <div uk-slider="finite: true;">
             <div
               class="uk-position-relative uk-visible-toggle uk-dark"
               tabindex="-1"
             >
               <div class="uk-slider-container uk-background-default">
                 <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
+                  <% movies_action_videos.forEach(function(video){ %>
                   <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
+                    <a href="/view/<%= video.video_id %>">
                       <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
+                        class="uk-card uk-card-default uk-border-rounded uk-card-hover"
                       >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
+                        <div
+                          class="uk-cover-container uk-border-top-rounded slider-movie-art"
+                        >
+                          <img
+                            class=""
+                            src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
+                            uk-cover
+                          />
+                        </div>
+                        <div class="uk-padding-small">
+                          <h6 class="uk-h6 uk-margin-remove uk-text-center">
+                            <%= video.name %>
+                          </h6>
+                        </div>
                       </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
+                    </a>
                   </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
+                  <% }) %>
                 </ul>
               </div>
               <a
@@ -746,157 +510,39 @@
       <section class="uk-section uk-section-default">
         <div class="uk-container">
           <div>
-            <h4 class="uk-h4 uk-text-bold">Drama</h4>
+            <h4 class="uk-h4 uk-text-bold">Horror</h4>
           </div>
-          <div
-            uk-slider="autoplay: true; autoplay-interval: 10000; finite: true;"
-          >
+          <div uk-slider="finite: true;">
             <div
               class="uk-position-relative uk-visible-toggle uk-dark"
               tabindex="-1"
             >
               <div class="uk-slider-container uk-background-default">
                 <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
+                  <% movies_horror_videos.forEach(function(video){ %>
                   <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
+                    <a href="/view/<%= video.video_id %>">
                       <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
+                        class="uk-card uk-card-default uk-border-rounded uk-card-hover"
                       >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
+                        <div
+                          class="uk-cover-container uk-border-top-rounded slider-movie-art"
+                        >
+                          <img
+                            class=""
+                            src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
+                            uk-cover
+                          />
+                        </div>
+                        <div class="uk-padding-small">
+                          <h6 class="uk-h6 uk-margin-remove uk-text-center">
+                            <%= video.name %>
+                          </h6>
+                        </div>
                       </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
+                    </a>
                   </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div
-                      class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                    >
-                      <div
-                        class="uk-cover-container uk-border-top-rounded slider-movie-art"
-                      >
-                        <img
-                          class=""
-                          src="https://via.placeholder.com/300"
-                          uk-cover
-                        />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          Movie title
-                        </h6>
-                      </div>
-                    </div>
-                  </li>
+                  <% }) %>
                 </ul>
               </div>
               <a
