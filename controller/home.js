@@ -193,15 +193,48 @@ exports.view = function (request, response) {
                if (info.trailer === file.name){
                    tokens = file.metadata.metadata.firebaseStorageDownloadTokens;
                    original_name = file.name.split('/')[1];
-                   info.xxx = tokens;
+                   info.tokens = tokens;
                    info.file_name = original_name;
                }
             });
 
             if (series.length === index+1){
-                response.render('view.ejs', {
-                    video: series
-                });
+              if (series.length !== 0) {
+
+                if(series[0].video_id){
+                  // movies
+                  switch (series[0].genre) {
+                    case "Action":
+                        response.render('view.ejs', {
+                            video: series,
+                            similar_video: index_media.action_movie
+                        });
+                      break;
+                    case "Horror":
+                        response.render('view.ejs', {
+                            video: series,
+                            similar_video: index_media.horror_movie
+                        });
+                      break;
+                    default:
+
+                  }
+                }else {
+                  // series
+                  switch (series[0].genre) {
+                    case "Action":
+                        response.render('view.ejs', {
+                            video: series,
+                            similar_video: index_media.series
+                        });
+                      break;
+                    default:
+
+                  }
+                }
+
+              }
+
             }
 
         }
