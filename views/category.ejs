@@ -1,26 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Aftop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css"
+    />
     <!-- UIkit JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js"></script>
     <!-- fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Reenie+Beanie">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Reenie+Beanie"
+    />
     <!-- jQuery throttle-debounce -->
-    <script src="https://cdn.jsdelivr.net/gh/cowboy/jquery-throttle-debounce/jquery.ba-throttle-debounce.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/cowboy/jquery-throttle-debounce/jquery.ba-throttle-debounce.js"
+      defer
+    ></script>
     <!-- font-awesome -->
     <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
     <!-- sanitize.css https://unpkg.com/sanitize.css -->
-    <link href="https://cdn.jsdelivr.net/gh/csstools/sanitize.css@latest/sanitize.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+    <link
+      href="https://cdn.jsdelivr.net/gh/csstools/sanitize.css@latest/sanitize.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
     <!-- modenizr -->
     <script src="js/modenizr.js" defer></script>
     <!-- routing -->
@@ -32,240 +47,368 @@
     <!-- money.js -->
     <script src="https://cdn.jsdelivr.net/gh/openexchangerates/money.js@latest/money.min.js"></script>
     <!-- videojs -->
-    <link href="https://vjs.zencdn.net/7.7.5/video-js.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/videojs-themes/forest/index.css">
+    <link href="https://vjs.zencdn.net/7.7.5/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/videojs-themes/forest/index.css" />
     <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
     <script src="https://vjs.zencdn.net/7.7.5/video.js"></script>
     <style></style>
-</head>
-<body class="uk-container-large">
+  </head>
+  <body class="uk-container-large uk-margin-auto uk-position-relative">
     <header
-        uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-box-shadow-small; cls-inactive: uk-position-z-index; top: section">
-        <div class="uk-navbar-container bg-white border-bottom">
-            <nav class="uk-navbar uk-width-1-1" uk-navbar="mode: click">
-                <div class="uk-navbar-left">
-                    <ul class="uk-navbar-nav uk-text-bold">
-                        <li class="uk-active"><a href="#">Logo</a></li>
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
-                        <li><a href="#toggle-animation" uk-toggle="target: #toggle-animation; animation: uk-animation-fade">Categories</a></li>
-                        <li class=""><a href="/downloads">Downloads</a></li>
+      uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-box-shadow-small; cls-inactive: uk-position-z-index; top: section"
+    >
+      <div class="uk-navbar-container bg-white border-bottom">
+        <nav class="uk-navbar uk-width-1-1" uk-navbar="mode: click">
+          <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav uk-text-bold">
+              <li class="uk-active"><a href="#">Logo</a></li>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a
+                  href="#toggle-animation"
+                  uk-toggle="target: #toggle-animation; animation: uk-animation-fade"
+                  >Categories</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav uk-text-bold uk-hidden@s">
+              <li class="uk-margin-small-right">
+                <div class="uk-flex uk-flex-middle">
+                  <button
+                    class=""
+                    type="button"
+                    uk-icon="icon: menu; ratio: 1.5"
+                    uk-toggle="target: #offcanvas-slide"
+                  ></button>
+                </div>
+                <div
+                  id="offcanvas-slide"
+                  class=""
+                  uk-offcanvas="overlay: true; flip: true;"
+                >
+                  <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+                    <button
+                      class="uk-offcanvas-close uk-close-large"
+                      type="button"
+                      uk-close
+                    ></button>
+                    <ul
+                      class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical uk-padding uk-text-left"
+                    >
+                      <li class=""><a href="#">Movies</a></li>
+                      <li class=""><a href="#">Series</a></li>
+                      <li class=""><a href="#">Share</a></li>
+                      <li class=""><a href="#">Feedback</a></li>
+                      <li class=""><a href="#">Terms &amp; Policies</a></li>
+                      <li class=""><a href="#">Sign Out</a></li>
                     </ul>
+                  </div>
                 </div>
-                <div class="uk-navbar-right">
-                    <ul class="uk-navbar-nav uk-text-bold uk-hidden@s">
-                        <li class="uk-margin-small-right">
-                            <div class="uk-flex uk-flex-middle">
-                                <button class="" type="button" uk-icon="icon: menu; ratio: 1.5"
-                                    uk-toggle="target: #offcanvas-slide"></button>
-                            </div>
-                            <div id="offcanvas-slide" class="" uk-offcanvas="overlay: true; flip: true;">
-                                <div class="uk-offcanvas-bar uk-flex uk-flex-column">
-                                    <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
-                                    <ul
-                                        class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical uk-padding uk-text-left">
-                                        <li class=""><a href="#">Movies</a></li>
-                                        <li class=""><a href="#">Series</a></li>
-                                        <li class=""><a href="#">Downloads</a></li>
-                                        <li class=""><a href="#">Share</a></li>
-                                        <li class=""><a href="#">Feedback</a></li>
-                                        <li class=""><a href="#">Terms &amp; Policies</a></li>
-                                        <li class=""><a href="#">Sign Out</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div
+          id="toggle-animation"
+          class=""
+          style="border-top: 1px solid #e0e0e0;"
+          hidden
+        >
+          <div class="uk-container">
+            <div class="uk-tile uk-padding-small">
+              <div class="uk-position-relative" uk-slider="finite: true">
+                <div
+                  class="uk-position-relative uk-slider-container uk-visible-toggle"
+                  tabindex="-1"
+                >
+                  <ul class="uk-slider-items uk-grid-small uk-grid">
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Latest
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Action
+                        <span class="uk-badge" style="vertical-align: unset;"
+                          ><small>0</small></span
+                        >
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Animation
+                        <span class="uk-badge" style="vertical-align: unset;"
+                          ><small>0</small></span
+                        >
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Comedy
+                        <span class="uk-badge" style="vertical-align: unset;"
+                          ><small>0</small></span
+                        >
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Latest
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Action
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Animation
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Comedy
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Latest
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Action
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Animation
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        class="uk-button uk-button-default uk-border-rounded"
+                      >
+                        Comedy
+                      </button>
+                    </li>
+                  </ul>
                 </div>
-            </nav>
-            <div id="toggle-animation" class="" style="border-top:1px solid #e0e0e0;" hidden>
-                <div class="uk-container">
-                    <div class="uk-tile uk-padding-small">
-                        <div class="uk-position-relative" uk-slider="finite: true">
-                            <div class="uk-position-relative uk-slider-container uk-visible-toggle" tabindex="-1">
-                                <ul class="uk-slider-items uk-grid-small uk-grid">
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Latest</button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Action <span class="uk-badge" style="vertical-align:unset;"><small>0</small></span></button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Animation <span class="uk-badge" style="vertical-align:unset;"><small>0</small></span></button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Comedy <span class="uk-badge" style="vertical-align:unset;"><small>0</small></span></button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Latest</button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Action</button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Animation</button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Comedy</button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Latest</button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Action</button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Animation</button>
-                                    </li>
-                                    <li>
-                                        <button class="uk-button uk-button-default uk-border-rounded">Comedy</button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <a class="uk-position-center-left-out uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                            <a class="uk-position-center-right-out uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                        </div>
-                    </div>
-                </div>
+                <a
+                  class="uk-position-center-left-out uk-position-small uk-hidden-hover"
+                  href="#"
+                  uk-slidenav-previous
+                  uk-slider-item="previous"
+                ></a>
+                <a
+                  class="uk-position-center-right-out uk-position-small uk-hidden-hover"
+                  href="#"
+                  uk-slidenav-next
+                  uk-slider-item="next"
+                ></a>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </header>
     <main id="content">
-        <section class="uk-section-small uk-section-default">
-            <div class="uk-container">
-                <div class="uk-child-width-1-4@m" uk-grid>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <video id="player" 
-                                    class="video-js vjs-theme-forest" 
-                                    controls preload="none"
-                                    uk-cover="autoplay:false" 
-                                    poster="http://vjs.zencdn.net/v/oceans.png" 
-                                    data-setup="{}">
-                                    <source src="media/yootheme-pro.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-cover-container">
-                            <div class="uk-cover-container uk-height-200">
-                                <img src="https://via.placeholder.com/800" alt="" uk-cover>
-                            </div>
-                            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                                <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
-                            </div>
-                        </div>
-                    </div>
+      <section class="uk-section-small uk-section-default">
+        <div class="uk-container">
+          <div class="uk-child-width-1-4@m" uk-grid>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <video
+                    id="player"
+                    class="video-js vjs-theme-forest"
+                    controls
+                    preload="none"
+                    uk-cover="autoplay:false"
+                    poster="http://vjs.zencdn.net/v/oceans.png"
+                    data-setup="{}"
+                  >
+                    <source src="media/yootheme-pro.mp4" type="video/mp4" />
+                  </video>
                 </div>
+              </div>
             </div>
-        </section>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="uk-cover-container">
+                <div class="uk-cover-container uk-height-200">
+                  <img src="https://via.placeholder.com/800" alt="" uk-cover />
+                </div>
+                <div
+                  class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1"
+                  uk-cover
+                >
+                  <a href="" uk-icon="icon: play-circle; ratio: 3"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script>
-    $(document).ready(function() {
-    });
+      $(document).ready(function () {});
     </script>
-</body>
+  </body>
 </html>
