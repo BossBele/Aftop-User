@@ -248,7 +248,7 @@
       <section class="uk-section-small uk-section-default">
         <div class="uk-container uk-margin-auto uk-child-width-1-2" uk-grid>
           <button class="uk-button uk-button-default">Trailer</button>
-          <button class="uk-button uk-button-default">Full Movie</button>
+          <button id="full_movie" class="uk-button uk-button-default">Full Movie</button>
         </div>
       </section>
       <section class="uk-section-small uk-section-default">
@@ -361,9 +361,136 @@
           </div>
         </div>
       </section>
+
+
+      <div id="signin-modal" class="uk-flex-top" uk-modal>
+        <div
+          class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded"
+        >
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+          <div>
+            <form id="signin_form">
+              <legend class="uk-legend">Sign In</legend>
+              <div class="uk-margin">
+                <input class="uk-input" required type="text" id="email" placeholder="Email" />
+              </div>
+              <div class="uk-margin">
+                <input class="uk-input" required type="password" id="password" placeholder="Password" />
+              </div>
+              <div class="uk-margin uk-text-right">
+                <button type="submit" class="uk-button uk-button-default uk-border-rounded">
+                  Sign In
+                </button>
+              </div>
+            </form>
+            <p class="uk-text-center">
+              Don't have an account?
+              <span class="uk-text-primary" uk-toggle="target: #signup-modal">
+                <a class="uk-link-reset">Sign Up</a>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="signup-modal" class="uk-flex-top" uk-modal>
+        <div
+          class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded"
+        >
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+          <div>
+            <form>
+              <legend class="uk-legend">Sign Up</legend>
+              <div class="uk-margin">
+                <input class="uk-input" type="text" placeholder="Email" />
+              </div>
+              <div class="uk-margin">
+                <input class="uk-input" type="password" placeholder="Password" />
+              </div>
+              <div class="uk-margin uk-text-right">
+                <button class="uk-button uk-button-default uk-border-rounded">
+                  Sign Up
+                </button>
+              </div>
+            </form>
+            <p class="uk-text-center">
+              Have an account?
+              <span class="uk-text-primary" uk-toggle="target: #signin-modal">
+                <a class="uk-link-reset">Sign In</a>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" name="button" id='toggle' uk-toggle='target: #signin-modal'>fasfd</button>
+      <input type="hidden" id="movie_name" value="<%= video[0].movie_video %>">
+
     </main>
     <script>
       $(document).ready(function () {});
+
+
+      $('#full_movie').on('click',function(){
+        var movie_url = document.getElementById('movie_name').value;
+        var movie_name = movie_url.split('/');
+
+        fetch('/watch_movie/'+movie_name[1], {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify()
+        }).then(response => response.text())
+        .then(response => checkError(response));
+
+      });
+
+      $('#signin_form').on('submit',function(e){
+          e.preventDefault();
+          var password = document.getElementById('password').value
+          var email = document.getElementById('email').value
+
+          signin(password,email);
+      });
+
+      function signin(password,email){
+        fetch('/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user: {
+                    password: password,
+                    email: email
+                }
+            })
+        }).then(response => response.text())
+        .then(response => checkError(response));
+      }
+
+
+      function checkError(response){
+
+        switch (response) {
+          case 'not signin':
+                $('#toggle').click();
+            break;
+            case 'Wrong password':
+              alert('Wrong password.');
+              break;
+            case 'no user':
+              alert('User not registerd.');
+              break;
+            case 'success':
+              $('#signin-modal').hide();
+              break;
+          default:
+
+        }
+
+      }
+
     </script>
   </body>
 </html>

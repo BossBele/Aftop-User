@@ -1,10 +1,25 @@
 const credential = require('./connection/firebase_credential');
+const firebase = require('./connection/firebase_client_auth');
 const db = credential.firestore();
 exports.storage = credential.storage().bucket();
 
 exports.all_videos = function() {
   return getVideos(db);
 };
+
+exports.watch_movie = function(request, response) {
+  // check auth
+  // console.log(request.params.movie_name);
+  firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            console.log('signin');
+            // 1. check for Payment
+            // 2. watch movie
+        }else{
+          return response.send('not signin');
+        }
+      });
+}
 
 exports.series = function(series_id) {
   let check = series_id.split('_');

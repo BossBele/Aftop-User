@@ -222,7 +222,8 @@ exports.view = function(request, response) {
             case "Action":
               response.render('view.ejs', {
                 video: series,
-                similar_video: index_media.action_movie
+                similar_video: index_media.action_movie,
+                movie_id: request.params.movie_id
               });
               break;
             case "Horror":
