@@ -11,14 +11,14 @@ exports.watch_movie = function(request, response) {
   // check auth
   // console.log(request.params.movie_name);
   firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            console.log('signin');
-            // 1. check for Payment
-            // 2. watch movie
-        }else{
-          return response.send('not signin');
-        }
-      });
+    if (user) {
+      console.log('signin');
+      // 1. check for Payment
+      // 2. watch movie
+    } else {
+      return response.send('not signin');
+    }
+  });
 }
 
 exports.series = function(series_id) {
@@ -33,6 +33,46 @@ exports.series = function(series_id) {
   return trailer;
 
 }
+
+exports.latest_movie = function() {
+  let movies_latest;
+  movies_latest = db.collection('movies')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_latest;
+
+};
+
+exports.action_movie = function() {
+  let movies_action;
+  movies_action = db.collection('movies')
+    .where('genre', '==', 'Action')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_action;
+};
+
+exports.animation_movie = function() {
+  let movies_animation;
+  movies_animation = db.collection('movies')
+    .where('genre', '==', 'Animation')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_animation;
+};
+
+exports.comedy_movie = function() {
+  let movies_comedy;
+  movies_comedy = db.collection('movies')
+    .where('genre', '==', 'Comedy')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_comedy;
+};
 
 function getVideos(db) {
 
@@ -49,7 +89,8 @@ function getVideos(db) {
   movies_action = db.collection('movies')
     .where('genre', '==', 'Action')
     .where('launched', '==', true)
-    .orderBy('launch_date', 'desc');
+    .orderBy('launch_date', 'desc')
+    .limit(50);
 
   movies_horror = db.collection('movies')
     .where('genre', '==', 'Horror')
@@ -58,7 +99,8 @@ function getVideos(db) {
 
   movies_latest = db.collection('movies')
     .where('launched', '==', true)
-    .orderBy('launch_date', 'desc');
+    .orderBy('launch_date', 'desc')
+    .limit(50);
 
   max_like_movie = db.collection('movies')
     .orderBy('likes', 'desc')

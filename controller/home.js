@@ -5,6 +5,10 @@ let all_series = [];
 let all_movies_latest = [];
 let all_movies_action = [];
 let all_movies_horror = [];
+let all_movies_latest_c = [];
+let all_movies_action_c = [];
+let all_movies_animation_c = [];
+let all_movies_comedy_c = [];
 let max_like_movie = [];
 let max_like_movie_all = [];
 let tokens = null;
@@ -16,6 +20,10 @@ let reference_movies_horror = videos.all_videos().movies_horror;
 let reference_movies_max_like = videos.all_videos().max_like_movie;
 let reference_movies_max_like_all = videos.all_videos().max_like_movie_all;
 let reference_series_all = videos.all_videos().series_all;
+let reference_movie_latest_all = videos.latest_movie();
+let reference_movie_action_all = videos.action_movie();
+let reference_movie_animation_all = videos.animation_movie();
+let reference_movie_comedy_all = videos.comedy_movie();
 
 exports.index = function(request, response) {
 
@@ -125,6 +133,7 @@ function toView(response, key, videos) {
     index_media[key] = videos;
   }
 
+  //index page media
   if (Object.keys(index_media).length === 1) {
 
     LOADING_COMPLETE = false;
@@ -150,7 +159,7 @@ function toView(response, key, videos) {
     LOADING_COMPLETE = false;
     view_all_movie(reference_movies_max_like_all, max_like_movie_all, tokens, original_name, response, "max_like_movie_all");
 
-  } else {
+  } else if (Object.keys(index_media).length === 6) {
     response.render('index.ejs', {
       series_videos: index_media.series,
       movies_videos: index_media.movies_latest,
@@ -162,6 +171,39 @@ function toView(response, key, videos) {
 
   }
 
+  // for category page media
+  switch (key) {
+    case 'latest_movie_all':
+      response.render('category.ejs', {
+        heading: 'Latest',
+        movies_videos: index_media.latest_movie_all,
+      });
+      break;
+    case 'movie_action_all':
+      response.render('category.ejs', {
+        heading: 'Action',
+        movies_videos: index_media.movie_action_all,
+      });
+      break;
+    case 'animation':
+      response.render('category.ejs', {
+        heading: 'Animation',
+        movies_videos: index_media.movie_animation_all,
+      });
+      break;
+    case 'comedy':
+      response.render('category.ejs', {
+        heading: 'Comedy',
+        movies_videos: index_media.movie_comedy_all,
+      });
+      break;
+    default:
+
+  }
+  if (key == "latest_movie_all") {
+
+  }
+
 }
 
 exports.download = function(request, response) {
@@ -169,7 +211,28 @@ exports.download = function(request, response) {
 };
 
 exports.category = function(request, response) {
-  response.render('category.ejs')
+  switch (request.params.type) {
+    case 'latest':
+      all_movies_latest_c = [];
+      view_all_movie(reference_movie_latest_all, all_movies_latest_c, tokens, original_name, response, "latest_movie_all");
+      break;
+    case 'action':
+      all_movies_action_c = [];
+      view_all_movie(reference_movie_action_all, all_movies_action_c, tokens, original_name, response, "movie_action_all");
+      break;
+    case 'animation':
+      all_movies_animation_c = [];
+      view_all_movie(reference_movie_animation_all, all_movies_animation_c, tokens, original_name, response, "movie_animation_all");
+      break;
+    case 'comedy':
+      all_movies_comedy_c = [];
+      view_all_movie(reference_movie_comedy_all, all_movies_comedy_c, tokens, original_name, response, "movie_comedy_all");
+      break;
+    default:
+
+  }
+
+
 };
 
 exports.view = function(request, response) {
