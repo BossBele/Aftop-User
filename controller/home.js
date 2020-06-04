@@ -185,13 +185,13 @@ function toView(response, key, videos) {
         movies_videos: index_media.movie_action_all,
       });
       break;
-    case 'animation':
+    case 'movie_animation_all':
       response.render('category.ejs', {
         heading: 'Animation',
         movies_videos: index_media.movie_animation_all,
       });
       break;
-    case 'comedy':
+    case 'movie_comedy_all':
       response.render('category.ejs', {
         heading: 'Comedy',
         movies_videos: index_media.movie_comedy_all,
