@@ -42,8 +42,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <!-- money.js -->
     <script src="https://cdn.jsdelivr.net/gh/openexchangerates/money.js@latest/money.min.js"></script>
+    <link
+      href="https://vjs.zencdn.net/7.8.2/video-js.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://vjs.zencdn.net/7.8.2/video.min.js"></script>
+    <script src="//cdn.sc.gl/videojs-hotkeys/0.2/videojs.hotkeys.min.js" defer></script>
     <!-- main CSS -->
     <link rel="stylesheet" href="/css/main.css" />
+
+    <!-- City -->
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/city/index.css"
+      rel="stylesheet"
+    />
+
+    <!-- Fantasy -->
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css"
+      rel="stylesheet"
+    />
+
+    <!-- Forest -->
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css"
+      rel="stylesheet"
+    />
+
+    <!-- Sea -->
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/sea/index.css"
+      rel="stylesheet"
+    />
     <style></style>
   </head>
 
@@ -237,12 +267,24 @@
       <section class="uk-position-relative">
         <div class="uk-width-1-1">
           <video
-            src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/trailers%2F<%= video[0].file_name %>?alt=media&token=<%= video[0].tokens %>"
-            autoplay
+            id="video-view"
+            data-setup="{}"
             loop
+            autoplay
             playsinline
-            class="uk-display-block aftop-height-max-large uk-margin-auto video-js"
-          ></video>
+            preload="auto"
+            controls
+            class="uk-display-block aftop-height-max-large uk-margin-auto video-js vjs-theme-forest"
+          >
+          <source src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/trailers%2F<%= video[0].file_name %>?alt=media&token=<%= video[0].tokens %>"></source>
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank">
+              supports HTML5 video
+            </a>
+          </p>
+        </video>
         </div>
       </section>
       <section class="uk-section-small uk-section-default">
@@ -427,9 +469,15 @@
 
     </main>
     <script>
-      $(document).ready(function () {});
-
-
+      $(document).ready(function () {
+         videojs('video-view').ready(function() {
+          this.hotkeys({
+          volumeStep: 0.1,
+          seekStep: 5,
+          enableModifiersForNumbers: false
+         });
+       });
+      });
       $('#full_movie').on('click',function(){
         var movie_url = document.getElementById('movie_name').value;
         var movie_name = movie_url.split('/');
