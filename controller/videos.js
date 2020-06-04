@@ -74,6 +74,86 @@ exports.comedy_movie = function() {
   return movies_comedy;
 };
 
+exports.crime_movie = function() {
+  let movies_crime;
+  movies_crime = db.collection('movies')
+    .where('genre', '==', 'Crime')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_crime;
+};
+
+exports.drama_movie = function() {
+  let movies_drama;
+  movies_drama = db.collection('movies')
+    .where('genre', '==', 'Drama')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_drama;
+};
+
+exports.fantasy_movie = function() {
+  let movies_fantasy;
+  movies_fantasy = db.collection('movies')
+    .where('genre', '==', 'Fantasy')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_fantasy;
+};
+
+exports.historical_movie = function() {
+  let movies_historical;
+  movies_historical = db.collection('movies')
+    .where('genre', '==', 'Historical')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_historical;
+};
+
+exports.horror_movie = function() {
+  let movies_horror;
+  movies_horror = db.collection('movies')
+    .where('genre', '==', 'Horror')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_horror;
+};
+
+exports.romance_movie = function() {
+  let movies_romance;
+  movies_romance = db.collection('movies')
+    .where('genre', '==', 'Romance')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_romance;
+};
+
+exports.thriller_movie = function() {
+  let movies_thriller;
+  movies_thriller = db.collection('movies')
+    .where('genre', '==', 'Thriller')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_thriller;
+};
+
+exports.western_movie = function() {
+  let movies_western;
+  movies_western = db.collection('movies')
+    .where('genre', '==', 'Western')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  return movies_western;
+};
+
 function getVideos(db) {
 
   let series_all;

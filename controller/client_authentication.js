@@ -7,8 +7,6 @@ exports.signin = function(request, response) {
     if (user) {
       // User is signed in
       // var email = user.email;
-      // console.log('signin');
-      return sendData(response,'success');
     } else {
       // console.log('not signin');
       firebase.auth().signInWithEmailAndPassword(request.body.user.email, request.body.user.password).catch(function(error) {
@@ -26,6 +24,21 @@ exports.signin = function(request, response) {
     }
   });
 
+}
+
+exports.signup = function(request, response) {
+  firebase.auth().createUserWithEmailAndPassword(request.body.user.email, request.body.user.password)
+  .then(function(user) {
+    return sendData(response,'user created');
+  }).catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    if (errorCode === 'auth/email-already-in-use') {
+      return sendData(response,'user exists');
+    }else {
+      return sendData(response,'user error');
+    }
+  });
 }
 
 function sendData(response,data) {

@@ -5,9 +5,7 @@ let all_series = [];
 let all_movies_latest = [];
 let all_movies_action = [];
 let all_movies_horror = [];
-let all_movies_latest_c = [];
-let all_movies_action_c = [];
-let all_movies_animation_c = [];
+let all_movies_c = [];
 let all_movies_comedy_c = [];
 let max_like_movie = [];
 let max_like_movie_all = [];
@@ -24,6 +22,14 @@ let reference_movie_latest_all = videos.latest_movie();
 let reference_movie_action_all = videos.action_movie();
 let reference_movie_animation_all = videos.animation_movie();
 let reference_movie_comedy_all = videos.comedy_movie();
+let reference_movie_crime_all = videos.crime_movie();
+let reference_movie_drama_all = videos.drama_movie();
+let reference_movie_fantasy_all = videos.fantasy_movie();
+let reference_movie_historical_all = videos.historical_movie();
+let reference_movie_horror_all = videos.horror_movie();
+let reference_movie_romance_all = videos.romance_movie();
+let reference_movie_thriller_all = videos.thriller_movie();
+let reference_movie_western_all = videos.western_movie();
 
 exports.index = function(request, response) {
 
@@ -197,12 +203,58 @@ function toView(response, key, videos) {
         movies_videos: index_media.movie_comedy_all,
       });
       break;
+    case 'movie_crime_all':
+      response.render('category.ejs', {
+        heading: 'Crime',
+        movies_videos: index_media.movie_crime_all,
+      });
+      break;
+    case 'movie_drama_all':
+      response.render('category.ejs', {
+        heading: 'Drama',
+        movies_videos: index_media.movie_drama_all,
+      });
+      break;
+    case 'movie_fantasy_all':
+      response.render('category.ejs', {
+        heading: 'Fantasy',
+        movies_videos: index_media.movie_fantasy_all,
+      });
+      break;
+    case 'movie_historical_all':
+      response.render('category.ejs', {
+        heading: 'Historical',
+        movies_videos: index_media.movie_historical_all,
+      });
+      break;
+    case 'movie_horror_all':
+      response.render('category.ejs', {
+        heading: 'Horror',
+        movies_videos: index_media.movie_horror_all,
+      });
+      break;
+    case 'movie_romance_all':
+      response.render('category.ejs', {
+        heading: 'Romance',
+        movies_videos: index_media.movie_romance_all,
+      });
+      break;
+    case 'movie_thriller_all':
+      response.render('category.ejs', {
+        heading: 'Thriller',
+        movies_videos: index_media.movie_thriller_all,
+      });
+      break;
+    case 'movie_western_all':
+      response.render('category.ejs', {
+        heading: 'Western',
+        movies_videos: index_media.movie_western_all,
+      });
+      break;
     default:
 
   }
-  if (key == "latest_movie_all") {
 
-  }
 
 }
 
@@ -211,22 +263,43 @@ exports.download = function(request, response) {
 };
 
 exports.category = function(request, response) {
+  all_movies_c = [];
   switch (request.params.type) {
     case 'latest':
-      all_movies_latest_c = [];
-      view_all_movie(reference_movie_latest_all, all_movies_latest_c, tokens, original_name, response, "latest_movie_all");
+      view_all_movie(reference_movie_latest_all, all_movies_c, tokens, original_name, response, "latest_movie_all");
       break;
     case 'action':
-      all_movies_action_c = [];
-      view_all_movie(reference_movie_action_all, all_movies_action_c, tokens, original_name, response, "movie_action_all");
+      view_all_movie(reference_movie_action_all, all_movies_c, tokens, original_name, response, "movie_action_all");
       break;
     case 'animation':
-      all_movies_animation_c = [];
-      view_all_movie(reference_movie_animation_all, all_movies_animation_c, tokens, original_name, response, "movie_animation_all");
+      view_all_movie(reference_movie_animation_all, all_movies_c, tokens, original_name, response, "movie_animation_all");
       break;
     case 'comedy':
-      all_movies_comedy_c = [];
-      view_all_movie(reference_movie_comedy_all, all_movies_comedy_c, tokens, original_name, response, "movie_comedy_all");
+      view_all_movie(reference_movie_comedy_all, all_movies_c, tokens, original_name, response, "movie_comedy_all");
+      break;
+    case 'crime':
+      view_all_movie(reference_movie_crime_all, all_movies_c, tokens, original_name, response, "movie_crime_all");
+      break;
+    case 'drama':
+      view_all_movie(reference_movie_drama_all, all_movies_c, tokens, original_name, response, "movie_drama_all");
+      break;
+    case 'fantasy':
+      view_all_movie(reference_movie_fantasy_all, all_movies_c, tokens, original_name, response, "movie_fantasy_all");
+      break;
+    case 'historical':
+      view_all_movie(reference_movie_historical_all, all_movies_c, tokens, original_name, response, "movie_historical_all");
+      break;
+    case 'horror':
+      view_all_movie(reference_movie_horror_all, all_movies_c, tokens, original_name, response, "movie_horror_all");
+      break;
+    case 'romance':
+      view_all_movie(reference_movie_romance_all, all_movies_c, tokens, original_name, response, "movie_romance_all");
+      break;
+    case 'thriller':
+      view_all_movie(reference_movie_thriller_all, all_movies_c, tokens, original_name, response, "movie_thriller_all");
+      break;
+    case 'western':
+      view_all_movie(reference_movie_western_all, all_movies_c, tokens, original_name, response, "movie_western_all");
       break;
     default:
 
@@ -289,10 +362,64 @@ exports.view = function(request, response) {
                 movie_id: request.params.movie_id
               });
               break;
+            case "Animation":
+              response.render('view.ejs', {
+                video: series,
+                similar_video: index_media.movie_animation_all
+              });
+              break;
+            case "Comedy":
+              response.render('view.ejs', {
+                video: series,
+                similar_video: index_media.movie_comedy_all
+              });
+              break;
+            case "Crime":
+              response.render('view.ejs', {
+                video: series,
+                similar_video: index_media.movie_crime_all
+              });
+              break;
+            case "Drama":
+              response.render('view.ejs', {
+                video: series,
+                similar_video: index_media.movie_drama_all
+              });
+              break;
+            case "Historical":
+              response.render('view.ejs', {
+                video: series,
+                similar_video: index_media.movie_historical_all
+              });
+              break;
+            case "Fantasy":
+              response.render('view.ejs', {
+                video: series,
+                similar_video: index_media.movie_fantasy_all
+              });
+              break;
             case "Horror":
               response.render('view.ejs', {
                 video: series,
-                similar_video: index_media.horror_movie
+                similar_video: index_media.movie_horror_all
+              });
+              break;
+            case "Romance":
+              response.render('view.ejs', {
+                video: series,
+                similar_video: index_media.movie_romance_all
+              });
+              break;
+            case "Thriller":
+              response.render('view.ejs', {
+                video: series,
+                similar_video: index_media.movie_thriller_all
+              });
+              break;
+            case "Western":
+              response.render('view.ejs', {
+                video: series,
+                similar_video: index_media.movie_western_all
               });
               break;
             default:
