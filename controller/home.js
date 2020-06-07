@@ -53,24 +53,34 @@ function view_all_series(reference_series_all, all_series, tokens, original_name
     });
 
     let count = 0;
-    all_series.forEach((data) => {
-      bucket.file(data.cover_photo).get().then(function(data) {
-        bindToken(data, count, all_series);
-        count++;
+    if (all_series.length === 0) {
+      bindToken(null, null, all_series);
+    }else {
+      all_series.forEach((data) => {
+        bucket.file(data.cover_photo).get().then(function(data) {
+          bindToken(data, count, all_series);
+          count++;
+        });
       });
-    });
+    }
+
   }
 
   function bindToken(data, index, all_series) {
-    const file = data[0];
-    all_series.forEach((info) => {
-      if (info.cover_photo === file.name) {
-        tokens = file.metadata.metadata.firebaseStorageDownloadTokens;
-        original_name = file.name.split('/')[1];
-        info.tokens = tokens;
-        info.file_name = original_name;
-      }
-    });
+
+    if (all_series.length === 0) {
+      toView(response, "series", all_movies_latest);
+    }else {
+      const file = data[0];
+      all_series.forEach((info) => {
+        if (info.cover_photo === file.name) {
+          tokens = file.metadata.metadata.firebaseStorageDownloadTokens;
+          original_name = file.name.split('/')[1];
+          info.tokens = tokens;
+          info.file_name = original_name;
+        }
+      });
+    }
 
     if (all_series.length === index + 1) {
       toView(response, "series", all_series);
