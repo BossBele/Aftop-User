@@ -1,4 +1,5 @@
 const firebase = require('./connection/firebase_client_auth');
+const subscription = require('./subscription')
 
 exports.signin = function(request, response) {
 
@@ -7,6 +8,8 @@ exports.signin = function(request, response) {
     if (user) {
       // User is signed in
       // var email = user.email;
+      //set subscription
+      subscription.set_subscription(firebase);
     } else {
       // console.log('not signin');
       firebase.auth().signInWithEmailAndPassword(request.body.user.email, request.body.user.password).catch(function(error) {

@@ -10,7 +10,7 @@ let playing_full_video = false;
 const credential = require('./connection/firebase_credential');
 const db = credential.firestore();
 
-set_subscription();
+// set_subscription();
 
 function wallet_pay(input_data) {
 
@@ -62,12 +62,12 @@ function get_current_time() {
     return d.getTime() / 1000;
 }
 
-function set_subscription() {
+exports.set_subscription = function(firebase) {
 
     let current_time = get_current_time();
-
+    console.log(get_user_email(firebase));
     let query = db.collection(VOUCHERS_COLLECTION)
-        .where("customerId", "==", get_user_email())
+        .where("customerId", "==", get_user_email(firebase))
         .where("end", ">", current_time)
         .orderBy("end", "desc")
         .limit(1);
@@ -93,7 +93,7 @@ function update_info(doc) {
     console.log("subscription is set");;
 }
 
-function get_user_email() {
+function get_user_email(firebase) {
     let user = firebase.auth().currentUser;
     return user != null ? user.email : null;
 }

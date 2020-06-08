@@ -39,6 +39,7 @@ exports.index = function(request, response) {
 
 function view_all_series(reference_series_all, all_series, tokens, original_name, response) {
   //for all_series
+  all_series = [];
   reference_series_all.get()
     .then((snapshot) => {
       arrayObject(snapshot);
