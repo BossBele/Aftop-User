@@ -235,7 +235,7 @@
               <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
                 <% movies_videos.forEach(function(video){ %>
                 <li>
-                  <a href="/view/<%= video.video_id %>">
+                  <a href="/view/<%= video.video_id %>/<%= video.genre %>">
                     <div class="uk-card uk-card-default uk-border-rounded uk-card-hover">
                       <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
                         <img class="" src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>" uk-cover />
@@ -268,7 +268,7 @@
               <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
                 <% series_videos.forEach(function(video){ %>
                 <li>
-                  <a href="/view/<%= video.series_id %>">
+                  <a href="/view/<%= video.video_id %>/<%= video.genre %>">
                     <div class="uk-card uk-card-default uk-border-rounded uk-card-hover">
                       <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
                         <img class="" src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>" uk-cover />
