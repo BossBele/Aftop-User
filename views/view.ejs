@@ -370,37 +370,23 @@
     <input type="hidden" id="movie_name" value="<%= video[0].movie_video %>">
 
     <div id="bundle-modal" class="uk-flex-top" uk-modal>
-      <div
-        class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded"
-      >
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-text-center">
           <form>
             <legend class="uk-legend">Choose Bundle</legend>
             <div class="uk-margin">
-              <button
-                type="button"
-                class="uk-button uk-button-default uk-border-rounded"
-                uk-toggle="target: #payment-modal"
-              >
+              <button type="button" class="uk-button uk-button-default uk-border-rounded" uk-toggle="target: #payment-modal">
                 Kwanza
               </button>
             </div>
             <div class="uk-margin">
-              <button
-                type="button"
-                class="uk-button uk-button-default uk-border-rounded"
-                uk-toggle="target: #payment-modal"
-              >
+              <button type="button" class="uk-button uk-button-default uk-border-rounded" uk-toggle="target: #payment-modal">
                 Kati
               </button>
             </div>
             <div class="uk-margin">
-              <button
-                type="button"
-                class="uk-button uk-button-default uk-border-rounded"
-                uk-toggle="target: #payment-modal"
-              >
+              <button type="button" class="uk-button uk-button-default uk-border-rounded" uk-toggle="target: #payment-modal">
                 Mwisho
               </button>
             </div>
@@ -409,28 +395,38 @@
       </div>
     </div>
     <div id="payment-modal" class="uk-flex-top" uk-modal>
-      <div
-        class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded"
-      >
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-text-center">
           <form>
             <legend class="uk-legend">Choose Bundle</legend>
             <div class="uk-margin">
-              <button
-                type="button"
-                class="uk-button uk-button-default uk-border-rounded"
-              >
+              <button type="button" class="uk-button uk-button-default uk-border-rounded" uk-toggle="target: #payment-modal-number">
                 <img src="/media/airtel-money.png" style="height: 60px;" /> Airtel
                 Money
               </button>
             </div>
             <div class="uk-margin">
-              <button
-                type="button"
-                class="uk-button uk-button-default uk-border-rounded"
-              >
+              <button type="button" class="uk-button uk-button-default uk-border-rounded" uk-toggle="target: #payment-modal-number">
                 <img src="/media/tigo-pesa.png" style="height: 30px;" /> Tigo Pesa
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="payment-modal-number" class="uk-flex-top" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-text-center">
+          <form>
+            <legend class="uk-legend">Phone Number</legend>
+            <div class="uk-margin">
+              <input class="uk-input" type="number" id="pay_phone" placeholder="Phone Number" />
+            </div>
+            <div class="uk-margin uk-text-right">
+              <button type="submit" class="uk-button uk-button-default uk-border-rounded">
+                Pay
               </button>
             </div>
           </form>
