@@ -21,16 +21,34 @@ exports.watch_movie = function(request, response) {
   });
 }
 
-exports.series = function(series_id) {
+exports.series = function(series_id,genre) {
+  let data = {};
   let check = series_id.split('_');
 
   if (check[0] === "movie") {
     trailer = db.collection('movies').where('video_id', '==', series_id);
+    movies_action = db.collection('movies')
+      .where('genre', '==', genre)
+      .where('launched', '==', true)
+      .orderBy('launch_date', 'desc')
+      .limit(50);
+
+      data.trailer = trailer;
+      data.movies = movies_action;
+
+      return data;
   } else {
     trailer = db.collection('series').where('series_id', '==', series_id);
-  }
+    series_action = db.collection('series')
+      .where('genre', '==', genre)
+      .orderBy('release_date', 'desc')
+      .limit(50);
 
-  return trailer;
+      data.trailer = trailer;
+      data.movies = series_action;
+
+      return trailer;
+  }
 
 }
 
@@ -169,11 +187,55 @@ function getVideos(db) {
   movies_action = db.collection('movies')
     .where('genre', '==', 'Action')
     .where('launched', '==', true)
-    .orderBy('launch_date', 'desc')
-    .limit(50);
+    .orderBy('launch_date', 'desc');
 
   movies_horror = db.collection('movies')
+    .where('genre', '==', 'Animation')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  max_like_movie = db.collection('movies')
+    .where('genre', '==', 'Comedy')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  max_like_movie_all = db.collection('movies')
+    .where('genre', '==', 'Crime')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  movie_drama = db.collection('movies')
+    .where('genre', '==', 'Drama')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  movie_historical = db.collection('movies')
+    .where('genre', '==', 'Historical')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  movie_fantasy = db.collection('movies')
+    .where('genre', '==', 'Fantasy')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  movie_horror = db.collection('movies')
     .where('genre', '==', 'Horror')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  movie_romance = db.collection('movies')
+    .where('genre', '==', 'Romance')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  movie_thriller = db.collection('movies')
+    .where('genre', '==', 'Thriller')
+    .where('launched', '==', true)
+    .orderBy('launch_date', 'desc');
+
+  movie_western = db.collection('movies')
+    .where('genre', '==', 'Western')
     .where('launched', '==', true)
     .orderBy('launch_date', 'desc');
 
@@ -182,14 +244,6 @@ function getVideos(db) {
     .orderBy('launch_date', 'desc')
     .limit(50);
 
-  max_like_movie = db.collection('movies')
-    .orderBy('likes', 'desc')
-    .limit(1);
-
-  max_like_movie_all = db.collection('movies')
-    .orderBy('likes', 'desc')
-    .startAt(2);
-
   movies_all = db.collection('movies')
     .orderBy('launch_date', 'desc');
 
@@ -197,13 +251,21 @@ function getVideos(db) {
     .orderBy('release_date', 'desc');
 
 
-  data.movies_action = movies_action;
-  data.movies_latest = movies_latest;
-  data.movies_all = movies_all;
   data.series_all = series_all;
+  data.movies_latest = movies_latest;
+  // counts
+  data.movies_all = movies_all;
+  data.movies_action = movies_action;
   data.movies_horror = movies_horror;
   data.max_like_movie = max_like_movie;
   data.max_like_movie_all = max_like_movie_all;
+  data.movie_drama = movie_drama;
+  data.movie_historical = movie_historical;
+  data.movie_fantasy = movie_fantasy;
+  data.movie_horror = movie_horror;
+  data.movie_romance = movie_romance;
+  data.movie_thriller = movie_thriller;
+  data.movie_western = movie_western;
 
   return data;
 

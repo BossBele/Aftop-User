@@ -95,7 +95,7 @@
                     <a href="/category/action">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Action
-                        <span class="uk-badge" style="vertical-align: unset;"><small>0</small></span>
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= movies_action_videos %></small></span>
                       </button>
                     </a>
                   </li>
@@ -103,7 +103,7 @@
                     <a href="/category/animation">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Animation
-                        <span class="uk-badge" style="vertical-align: unset;"><small>0</small></span>
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= movies_horror_videos %></small></span>
                       </button>
                     </a>
                   </li>
@@ -111,7 +111,7 @@
                     <a href="/category/comedy">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Comedy
-                        <span class="uk-badge" style="vertical-align: unset;"><small>0</small></span>
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= movies_max_like %></small></span>
                       </button>
                     </a>
                   </li>
@@ -119,6 +119,7 @@
                     <a href="/category/crime">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Crime
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= horror %></small></span>
                       </button>
                     </a>
                   </li>
@@ -126,6 +127,7 @@
                     <a href="/category/drama">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Drama
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= drama %></small></span>
                       </button>
                     </a>
                   </li>
@@ -133,6 +135,7 @@
                     <a href="/category/historical">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Historical
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= historical %></small></span>
                       </button>
                     </a>
                   </li>
@@ -140,6 +143,7 @@
                     <a href="/category/fantasy">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Fantasy
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= fantasy %></small></span>
                       </button>
                     </a>
                   </li>
@@ -147,6 +151,7 @@
                     <a href="/category/horror">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Horror
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= horror %></small></span>
                       </button>
                     </a>
                   </li>
@@ -154,6 +159,7 @@
                     <a href="/category/romance">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Romance
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= romance %></small></span>
                       </button>
                     </a>
                   </li>
@@ -169,6 +175,7 @@
                     <a href="/category/thriller">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Thriller
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= thriller %></small></span>
                       </button>
                     </a>
                   </li>
@@ -176,6 +183,7 @@
                     <a href="/category/western">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Western
+                        <span class="uk-badge" style="vertical-align: unset;"><small><%= western %></small></span>
                       </button>
                     </a>
                   </li>
@@ -201,7 +209,7 @@
               <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
                 <% movies_videos.forEach(function(video){ %>
                 <li>
-                  <a href="/view/<%= video.video_id %>">
+                  <a href="/view/<%= video.video_id %>/<%= video.genre %>">
                     <div class="uk-card uk-card-default uk-border-rounded uk-card-hover">
                       <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
                         <img class="" src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>" uk-cover />
