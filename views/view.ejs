@@ -217,6 +217,7 @@
       <div class="uk-container uk-margin-auto uk-child-width-1-2" uk-grid>
         <button class="uk-button uk-button-default">Trailer</button>
         <button id="full_movie" class="uk-button uk-button-default">Full Movie</button>
+        <button class="uk-button uk-button-default" uk-toggle="target: #bundle-modal">Payment</button>
       </div>
     </section>
     <section class="uk-section-small uk-section-default">
@@ -368,6 +369,74 @@
     <button style="display: none" type="button" name="button" id='toggle' uk-toggle='target: #signin-modal'>fasfd</button>
     <input type="hidden" id="movie_name" value="<%= video[0].movie_video %>">
 
+    <div id="bundle-modal" class="uk-flex-top" uk-modal>
+      <div
+        class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded"
+      >
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-text-center">
+          <form>
+            <legend class="uk-legend">Choose Bundle</legend>
+            <div class="uk-margin">
+              <button
+                type="button"
+                class="uk-button uk-button-default uk-border-rounded"
+                uk-toggle="target: #payment-modal"
+              >
+                Kwanza
+              </button>
+            </div>
+            <div class="uk-margin">
+              <button
+                type="button"
+                class="uk-button uk-button-default uk-border-rounded"
+                uk-toggle="target: #payment-modal"
+              >
+                Kati
+              </button>
+            </div>
+            <div class="uk-margin">
+              <button
+                type="button"
+                class="uk-button uk-button-default uk-border-rounded"
+                uk-toggle="target: #payment-modal"
+              >
+                Mwisho
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="payment-modal" class="uk-flex-top" uk-modal>
+      <div
+        class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded"
+      >
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-text-center">
+          <form>
+            <legend class="uk-legend">Choose Bundle</legend>
+            <div class="uk-margin">
+              <button
+                type="button"
+                class="uk-button uk-button-default uk-border-rounded"
+              >
+                <img src="/media/airtel-money.png" style="height: 60px;" /> Airtel
+                Money
+              </button>
+            </div>
+            <div class="uk-margin">
+              <button
+                type="button"
+                class="uk-button uk-button-default uk-border-rounded"
+              >
+                <img src="/media/tigo-pesa.png" style="height: 30px;" /> Tigo Pesa
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </main>
   <script>
     $(document).ready(function() {

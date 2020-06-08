@@ -1,154 +1,225 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>AfTop - Movies and TV Series</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- UIkit CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css"
+    />
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js"></script>
+    <!-- fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Reenie+Beanie"
+    />
+    <!-- jQuery throttle-debounce -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/cowboy/jquery-throttle-debounce/jquery.ba-throttle-debounce.js"
+      defer
+    ></script>
+    <!-- sanitize.css https://unpkg.com/sanitize.css -->
+    <link
+      href="https://cdn.jsdelivr.net/gh/csstools/sanitize.css@latest/sanitize.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+    <!-- modenizr -->
+    <script src="/js/modenizr.js"></script>
+    <!-- numeral.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+    <!-- money.js -->
+    <script src="https://cdn.jsdelivr.net/gh/openexchangerates/money.js@latest/money.min.js"></script>
+    <style></style>
+  </head>
 
-<head>
-  <title>AfTop - Movies and TV Series</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <!-- jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- UIkit CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/css/uikit.min.css" />
-  <!-- UIkit JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit-icons.min.js"></script>
-  <!-- fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Reenie+Beanie" />
-  <!-- jQuery throttle-debounce -->
-  <script src="https://cdn.jsdelivr.net/gh/cowboy/jquery-throttle-debounce/jquery.ba-throttle-debounce.js" defer></script>
-  <!-- sanitize.css https://unpkg.com/sanitize.css -->
-  <link href="https://cdn.jsdelivr.net/gh/csstools/sanitize.css@latest/sanitize.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/main.css" />
-  <!-- modenizr -->
-  <script src="/js/modenizr.js"></script>
-  <!-- numeral.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-  <!-- money.js -->
-  <script src="https://cdn.jsdelivr.net/gh/openexchangerates/money.js@latest/money.min.js"></script>
-  <style></style>
-</head>
-
-<body class="uk-container-large uk-margin-auto uk-position-relative">
-  <header uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-box-shadow-small bg-white; cls-inactive: uk-navbar-transparent uk-position-top-left uk-position-z-index; top: section">
-    <div class="uk-navbar-container">
-      <nav class="uk-navbar uk-width-1-1" uk-navbar="mode: click">
-        <div class="uk-navbar-left">
-          <ul class="uk-navbar-nav uk-text-bold">
-            <li class="uk-active"><a href="#">Logo</a></li>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="#toggle-animation" uk-toggle="target: #toggle-animation; animation: uk-animation-fade">Categories</a>
-            </li>
-          </ul>
-        </div>
-        <div class="uk-navbar-right">
-          <ul class="uk-navbar-nav uk-text-bold">
-            <li>
-              <button class="uk-margin-small-right" type="button" uk-icon="icon: user; ratio: 1.5" uk-toggle="target: #signin-modal"></button>
-            </li>
-            <li class="uk-margin-small-right uk-hidden@s">
-              <div class="uk-flex uk-flex-middle">
-                <button class="" type="button" uk-icon="icon: menu; ratio: 1.5" uk-toggle="target: #offcanvas-slide"></button>
-              </div>
-              <div id="offcanvas-slide" class="" uk-offcanvas="overlay: true; flip: true;">
-                <div class="uk-offcanvas-bar uk-flex uk-flex-column">
-                  <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
-                  <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical uk-padding uk-text-left">
-                    <li class=""><a href="#">Movies</a></li>
-                    <li class=""><a href="#">Series</a></li>
-                    <li class=""><a href="#">Share</a></li>
-                    <li class=""><a href="#">Feedback</a></li>
-                    <li class=""><a href="#">Terms &amp; Policies</a></li>
-                    <li class=""><a href="#">Sign Out</a></li>
-                  </ul>
+  <body class="uk-container-large uk-margin-auto uk-position-relative">
+    <header
+      uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-box-shadow-small bg-white; cls-inactive: uk-navbar-transparent uk-position-top-left uk-position-z-index; top: section"
+    >
+      <div class="uk-navbar-container">
+        <nav class="uk-navbar uk-width-1-1" uk-navbar="mode: click">
+          <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav uk-text-bold">
+              <li class="uk-active"><a href="/">Logo</a></li>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a
+                  href="#toggle-animation"
+                  uk-toggle="target: #toggle-animation; animation: uk-animation-fade"
+                  >Categories</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav uk-text-bold">
+              <li>
+                <button
+                  class="uk-margin-small-right"
+                  type="button"
+                  uk-icon="icon: user; ratio: 1.5"
+                  uk-toggle="target: #signin-modal"
+                ></button>
+              </li>
+              <li class="uk-margin-small-right uk-hidden@s">
+                <div class="uk-flex uk-flex-middle">
+                  <button
+                    class=""
+                    type="button"
+                    uk-icon="icon: menu; ratio: 1.5"
+                    uk-toggle="target: #offcanvas-slide"
+                  ></button>
                 </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div id="toggle-animation" class="" style="border-top: 1px solid #e0e0e0;" hidden>
-        <div class="uk-container">
-          <div class="uk-tile uk-padding-small">
-            <div class="uk-position-relative" uk-slider="finite: true">
-              <div class="uk-position-relative uk-slider-container uk-visible-toggle" tabindex="-1">
-                <ul class="uk-slider-items uk-grid-small uk-grid">
-                  <li>
-                    <a href="/category/latest">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Latest
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/category/action">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Action
-                        <span class="uk-badge" style="vertical-align: unset;"><small>0</small></span>
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/category/animation">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Animation
-                        <span class="uk-badge" style="vertical-align: unset;"><small>0</small></span>
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/category/comedy">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Comedy
-                        <span class="uk-badge" style="vertical-align: unset;"><small>0</small></span>
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/category/crime">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Crime
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/category/drama">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Drama
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/category/historical">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Historical
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/category/fantasy">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Fantasy
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/category/horror">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Horror
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/category/romance">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Romance
-                      </button>
-                    </a>
-                  </li>
-                  <!-- <li>
+                <div
+                  id="offcanvas-slide"
+                  class=""
+                  uk-offcanvas="overlay: true; flip: true;"
+                >
+                  <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+                    <button
+                      class="uk-offcanvas-close uk-close-large"
+                      type="button"
+                      uk-close
+                    ></button>
+                    <ul
+                      class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical uk-padding uk-text-left"
+                    >
+                      <li class=""><a href="#">Movies</a></li>
+                      <li class=""><a href="#">Series</a></li>
+                      <li class=""><a href="#">Share</a></li>
+                      <li class=""><a href="#">Feedback</a></li>
+                      <li class=""><a href="#">Terms &amp; Policies</a></li>
+                      <li class=""><a href="#">Sign Out</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div
+          id="toggle-animation"
+          class=""
+          style="border-top: 1px solid #e0e0e0;"
+          hidden
+        >
+          <div class="uk-container">
+            <div class="uk-tile uk-padding-small">
+              <div class="uk-position-relative" uk-slider="finite: true">
+                <div
+                  class="uk-position-relative uk-slider-container uk-visible-toggle"
+                  tabindex="-1"
+                >
+                  <ul class="uk-slider-items uk-grid-small uk-grid">
+                    <li>
+                      <a href="/category/latest">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
+                        >
+                          Latest
+                        </button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/action">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
+                        >
+                          Action
+                          <span class="uk-badge" style="vertical-align: unset;"
+                            ><small>0</small></span
+                          >
+                        </button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/animation">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
+                        >
+                          Animation
+                          <span class="uk-badge" style="vertical-align: unset;"
+                            ><small>0</small></span
+                          >
+                        </button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/comedy">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
+                        >
+                          Comedy
+                          <span class="uk-badge" style="vertical-align: unset;"
+                            ><small>0</small></span
+                          >
+                        </button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/crime">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
+                        >
+                          Crime
+                        </button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/drama">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
+                        >
+                          Drama
+                        </button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/historical">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
+                        >
+                          Historical
+                        </button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/fantasy">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
+                        >
+                          Fantasy
+                        </button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/horror">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
+                        >
+                          Horror
+                        </button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/romance">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
+                        >
+                          Romance
+                        </button>
+                      </a>
+                    </li>
+                    <!-- <li>
                     <a href="/category/science Fiction">
                       <button class="uk-button uk-button-default uk-border-rounded">
                         Science Fiction
@@ -156,446 +227,464 @@
                       </button>
                     </a>
                   </li> -->
-                  <li>
-                    <a href="/category/thriller">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Thriller
-                      </button>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/category/western">
-                      <button class="uk-button uk-button-default uk-border-rounded">
-                        Western
-                      </button>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <a class="uk-position-center-left-out uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-              <a class="uk-position-center-right-out uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  <main id="content">
-    <!-- <section style="height:80px"></section> -->
-    <section class="uk-position-relative">
-      <div class="uk-cover-container uk-height-large uk-width-1-1">
-        <video src="/media/coverr-woman-enjoys-lake-view-1575195715443.mp4" autoplay loop muted playsinline uk-cover></video>
-      </div>
-    </section>
-    <section class="uk-section uk-section-default">
-      <div class="uk-container">
-        <div>
-          <h4 class="uk-h4 uk-text-bold">Latest Movies</h4>
-        </div>
-        <div uk-slider="finite: true;">
-          <div class="uk-position-relative uk-visible-toggle uk-dark" tabindex="-1">
-            <div class="uk-slider-container uk-background-default">
-              <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
-                <% movies_videos.forEach(function(video){ %>
-                <li>
-                  <a href="/view/<%= video.video_id %>">
-                    <div class="uk-card uk-card-default uk-border-rounded uk-card-hover">
-                      <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
-                        <img class="" src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>" uk-cover />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          <%= video.name %>
-                        </h6>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <% }) %>
-              </ul>
-            </div>
-            <a class="uk-position-center-left-out" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-            <a class="uk-position-center-right-out" href="#" uk-slidenav-next uk-slider-item="next"></a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="uk-section uk-section-default">
-      <div class="uk-container">
-        <div>
-          <h4 class="uk-h4 uk-text-bold">Latest Series</h4>
-        </div>
-        <div uk-slider="finite: true;">
-          <div class="uk-position-relative uk-visible-toggle uk-dark" tabindex="-1">
-            <div class="uk-slider-container uk-background-default">
-              <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
-                <% series_videos.forEach(function(video){ %>
-                <li>
-                  <a href="/view/<%= video.series_id %>">
-                    <div class="uk-card uk-card-default uk-border-rounded uk-card-hover">
-                      <div class="uk-cover-container uk-border-top-rounded slider-movie-art">
-                        <img class="" src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>" uk-cover />
-                      </div>
-                      <div class="uk-padding-small">
-                        <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                          <%= video.name %>
-                        </h6>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <% }) %>
-              </ul>
-            </div>
-            <a class="uk-position-center-left-out" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-            <a class="uk-position-center-right-out" href="#" uk-slidenav-next uk-slider-item="next"></a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="uk-section">
-      <div class="uk-grid-small" uk-height-match="> div" uk-grid>
-        <% movies_max_like.forEach(function(video){ %>
-        <div class="uk-width-2-3@s">
-          <div class="uk-position-relative uk-height-1-1 uk-border">
-            <div class="uk-cover-container uk-height-min-large uk-height-1-1">
-              <img class="" src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>" uk-cover />
-            </div>
-            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-              <a href="/view/<%= video.video_id %>" uk-icon="icon: play-circle; ratio: 4"></a>
-            </div>
-          </div>
-        </div>
-        <% }) %>
-
-        <div class="uk-width-1-3@s uk-child-width-1-2 uk-grid-collapse" uk-grid>
-          <% movies_max_like_all.forEach(function(video){ %>
-          <div>
-            <div class="uk-position-relative uk-border">
-              <div class="uk-cover-container uk-height-small">
-                <img class="" src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>" uk-cover />
-              </div>
-              <div class="uk-flex uk-flex-center uk-flex-middle uk-height-1-1 uk-width-1-1" uk-cover>
-                <a href="/view/<%= video.video_id %>" uk-icon="icon: play-circle; ratio: 3"></a>
-              </div>
-            </div>
-          </div>
-          <% }) %>
-        </div>
-      </div>
-    </section>
-    <!-- <section class="uk-section uk-section-default">
-        <div class="uk-container">
-          <div>
-            <h4 class="uk-h4 uk-text-bold">Action</h4>
-          </div>
-          <div uk-slider="finite: true;">
-            <div
-              class="uk-position-relative uk-visible-toggle uk-dark"
-              tabindex="-1"
-            >
-              <div class="uk-slider-container uk-background-default">
-                <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
-                  <% movies_action_videos.forEach(function(video){ %>
-                  <li>
-                    <a href="/view/<%= video.video_id %>">
-                      <div
-                        class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                      >
-                        <div
-                          class="uk-cover-container uk-border-top-rounded slider-movie-art"
+                    <li>
+                      <a href="/category/thriller">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
                         >
-                          <img
-                            class=""
-                            src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
-                            uk-cover
-                          />
-                        </div>
-                        <div class="uk-padding-small">
-                          <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                            <%= video.name %>
-                          </h6>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <% }) %>
-                </ul>
-              </div>
-              <a
-                class="uk-position-center-left-out"
-                href="#"
-                uk-slidenav-previous
-                uk-slider-item="previous"
-              ></a>
-              <a
-                class="uk-position-center-right-out"
-                href="#"
-                uk-slidenav-next
-                uk-slider-item="next"
-              ></a>
-            </div>
-          </div>
-        </div>
-      </section> -->
-    <!-- <section class="uk-section uk-section-default">
-        <div class="uk-container">
-          <div>
-            <h4 class="uk-h4 uk-text-bold">Horror</h4>
-          </div>
-          <div uk-slider="finite: true;">
-            <div
-              class="uk-position-relative uk-visible-toggle uk-dark"
-              tabindex="-1"
-            >
-              <div class="uk-slider-container uk-background-default">
-                <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
-                  <% movies_horror_videos.forEach(function(video){ %>
-                  <li>
-                    <a href="/view/<%= video.video_id %>">
-                      <div
-                        class="uk-card uk-card-default uk-border-rounded uk-card-hover"
-                      >
-                        <div
-                          class="uk-cover-container uk-border-top-rounded slider-movie-art"
+                          Thriller
+                        </button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/category/western">
+                        <button
+                          class="uk-button uk-button-default uk-border-rounded"
                         >
-                          <img
-                            class=""
-                            src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
-                            uk-cover
-                          />
-                        </div>
-                        <div class="uk-padding-small">
-                          <h6 class="uk-h6 uk-margin-remove uk-text-center">
-                            <%= video.name %>
-                          </h6>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <% }) %>
-                </ul>
+                          Western
+                        </button>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <a
+                  class="uk-position-center-left-out uk-position-small uk-hidden-hover"
+                  href="#"
+                  uk-slidenav-previous
+                  uk-slider-item="previous"
+                ></a>
+                <a
+                  class="uk-position-center-right-out uk-position-small uk-hidden-hover"
+                  href="#"
+                  uk-slidenav-next
+                  uk-slider-item="next"
+                ></a>
               </div>
-              <a
-                class="uk-position-center-left-out"
-                href="#"
-                uk-slidenav-previous
-                uk-slider-item="previous"
-              ></a>
-              <a
-                class="uk-position-center-right-out"
-                href="#"
-                uk-slidenav-next
-                uk-slider-item="next"
-              ></a>
             </div>
           </div>
         </div>
-      </section> -->
-    <section class="uk-section">
-      <div class="uk-container">
-        <div class="uk-child-width-1-2@s" uk-grid>
-          <div class="align-self-center pb-6 pb-md-8">
-            <h3 class="uk-h3">Available on Android</h3>
-            <p>
-              As absolute is by amounted repeated entirely ye returned. These
-              ready timed enjoy might sir yet one since. Years drift never if
-              could forty being no. On estimable dependent as suffering on my.
-            </p>
-            <div class="">
-              <a href="#"><img style="height: 80px;" src="media/badge-google-en.svg" alt="download on google play" /></a>
-            </div>
-          </div>
-          <div class="align-self-end uk-text-center">
-            <img src="media/phone.png" data-aos="slide-up" />
-          </div>
-        </div>
       </div>
-    </section>
-  </main>
-  <footer class="uk-section-muted">
-    <div class="uk-section uk-container">
-      <div class="">
-        <div class="uk-flex uk-flex-center uk-text-center">
-          <div class="">
-            <h4 class="uk-h4 uk-margin-remove">GET HELP</h4>
-            <h4 class="uk-h4 uk-margin-remove">Privacy Policy</h4>
-            <h4 class="uk-h4 uk-margin-remove">Terms</h4>
-            <h4 class="uk-h4 uk-margin-remove">Payment Options</h4>
-            <h4 class="uk-h4 uk-margin-remove">Contact Us</h4>
-          </div>
+    </header>
+    <main id="content">
+      <!-- <section style="height:80px"></section> -->
+      <section class="uk-position-relative">
+        <div class="uk-cover-container uk-height-large uk-width-1-1">
+          <video
+            src="/media/coverr-woman-enjoys-lake-view-1575195715443.mp4"
+            autoplay
+            loop
+            muted
+            playsinline
+            uk-cover
+          ></video>
         </div>
-      </div>
-      <section class="uk-section uk-padding-remove-bottom">
-        <div class="uk-child-width-1-2@s" uk-grid>
-          <div class="uk-flex uk-flex-center">
-            &copy; 2020 AfTop
-          </div>
-          <div class="uk-flex uk-flex-center">
-            <ul class="uk-height-1-1 uk-iconnav uk-flex-around uk-flex-middle">
+      </section>
+      <section
+        class="uk-section-small uk-section-default uk-padding-remove-bottom"
+      >
+        <div class="uk-container-small uk-margin-auto">
+          <small class="">Sponsored</small>
+        </div>
+        <div class="uk-container-small uk-margin-auto">
+          <div
+            class="uk-cover-container uk-height-small uk-border-rounded uk-visible-toggle uk-light"
+            tabindex="-1"
+            uk-slideshow="autoplay: true; max-height: 300; animation: fade"
+          >
+            <ul class="uk-slideshow-items">
               <li>
-                <a href="https://facebook.com/AfTop-Movies-And-Tv-Series-100273788376847" target="_blank" rel="noopener noreferrer" uk-icon="icon: facebook"></a>
+                <img src="/media/photo.jpg" alt="" uk-cover />
               </li>
               <li>
-                <a href="https://twitter.com/AfTop_" target="_blank" rel="noopener noreferrer" uk-icon="icon: twitter"></a>
+                <img src="/media/dark.jpg" alt="" uk-cover />
               </li>
               <li>
-                <a href="https://www.youtube.com/channel/UCR5vCj4_ANZJte6emXtrMIw" target="_blank" rel="noopener noreferrer" uk-icon="icon: youtube"></a>
-              </li>
-              <li>
-                <a href="https://instagram.com/aftop_" target="_blank" rel="noopener noreferrer" uk-icon="icon: instagram"></a>
+                <img src="/media/light.jpg" alt="" uk-cover />
               </li>
             </ul>
+            <a
+              class="uk-position-center-left uk-position-small uk-hidden-hover"
+              href="#"
+              uk-slidenav-previous
+              uk-slideshow-item="previous"
+            ></a>
+            <a
+              class="uk-position-center-right uk-position-small uk-hidden-hover"
+              href="#"
+              uk-slidenav-next
+              uk-slideshow-item="next"
+            ></a>
           </div>
         </div>
       </section>
-    </div>
-  </footer>
-  <div id="signin-modal" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded">
-      <button class="uk-modal-close-default" type="button" uk-close></button>
-      <div>
-        <form id="signin_form">
-          <legend class="uk-legend">Sign In</legend>
-          <div class="uk-margin">
-            <input class="uk-input" required type="text" id="email" placeholder="Email" />
+      <section class="uk-section uk-section-default">
+        <div class="uk-container">
+          <div>
+            <h4 class="uk-h4 uk-text-bold">Latest Movies</h4>
           </div>
-          <div class="uk-margin">
-            <input class="uk-input" required type="password" id="password" placeholder="Password" />
+          <div uk-slider="finite: true;">
+            <div
+              class="uk-position-relative uk-visible-toggle uk-dark"
+              tabindex="-1"
+            >
+              <div class="uk-slider-container uk-background-default">
+                <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
+                  <% movies_videos.forEach(function(video){ %>
+                  <li>
+                    <a href="/view/<%= video.video_id %>">
+                      <div
+                        class="uk-card uk-card-default uk-border-rounded uk-card-hover"
+                      >
+                        <div
+                          class="uk-cover-container uk-border-top-rounded slider-movie-art"
+                        >
+                          <img
+                            class=""
+                            src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
+                            uk-cover
+                          />
+                        </div>
+                        <div class="uk-padding-small">
+                          <h6 class="uk-h6 uk-margin-remove uk-text-center">
+                            <%= video.name %>
+                          </h6>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <% }) %>
+                </ul>
+              </div>
+              <a
+                class="uk-position-center-left-out"
+                href="#"
+                uk-slidenav-previous
+                uk-slider-item="previous"
+              ></a>
+              <a
+                class="uk-position-center-right-out"
+                href="#"
+                uk-slidenav-next
+                uk-slider-item="next"
+              ></a>
+            </div>
           </div>
-          <div class="uk-margin uk-text-right">
-            <button type="submit" class="uk-button uk-button-default uk-border-rounded">
-              Sign In
-            </button>
+        </div>
+      </section>
+      <section class="uk-section uk-section-default">
+        <div class="uk-container">
+          <div>
+            <h4 class="uk-h4 uk-text-bold">Latest Series</h4>
           </div>
-        </form>
-        <p class="uk-text-center">
-          Don't have an account?
-          <span class="uk-text-primary" uk-toggle="target: #signup-modal">
-            <a class="uk-link-reset">Sign Up</a>
-          </span>
-        </p>
+          <div uk-slider="finite: true;">
+            <div
+              class="uk-position-relative uk-visible-toggle uk-dark"
+              tabindex="-1"
+            >
+              <div class="uk-slider-container uk-background-default">
+                <ul class="uk-slider-items uk-grid-small uk-margin" uk-grid>
+                  <% series_videos.forEach(function(video){ %>
+                  <li>
+                    <a href="/view/<%= video.series_id %>">
+                      <div
+                        class="uk-card uk-card-default uk-border-rounded uk-card-hover"
+                      >
+                        <div
+                          class="uk-cover-container uk-border-top-rounded slider-movie-art"
+                        >
+                          <img
+                            class=""
+                            src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/covers%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
+                            uk-cover
+                          />
+                        </div>
+                        <div class="uk-padding-small">
+                          <h6 class="uk-h6 uk-margin-remove uk-text-center">
+                            <%= video.name %>
+                          </h6>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <% }) %>
+                </ul>
+              </div>
+              <a
+                class="uk-position-center-left-out"
+                href="#"
+                uk-slidenav-previous
+                uk-slider-item="previous"
+              ></a>
+              <a
+                class="uk-position-center-right-out"
+                href="#"
+                uk-slidenav-next
+                uk-slider-item="next"
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="uk-section">
+        <div class="uk-container">
+          <div class="uk-child-width-1-2@s" uk-grid>
+            <div class="align-self-center pb-6 pb-md-8">
+              <h3 class="uk-h3">Available on Android</h3>
+              <p>
+                As absolute is by amounted repeated entirely ye returned. These
+                ready timed enjoy might sir yet one since. Years drift never if
+                could forty being no. On estimable dependent as suffering on my.
+              </p>
+              <div class="">
+                <a href="#"
+                  ><img
+                    style="height: 80px;"
+                    src="media/badge-google-en.svg"
+                    alt="download on google play"
+                /></a>
+              </div>
+            </div>
+            <div class="align-self-end uk-text-center">
+              <img src="media/phone.png" data-aos="slide-up" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="uk-section-muted">
+      <div class="uk-section uk-container">
+        <div class="">
+          <div class="uk-flex uk-flex-center uk-text-center">
+            <div class="">
+              <h4 class="uk-h4 uk-margin-remove">GET HELP</h4>
+              <h4 class="uk-h4 uk-margin-remove">Privacy Policy</h4>
+              <h4 class="uk-h4 uk-margin-remove">Terms</h4>
+              <h4 class="uk-h4 uk-margin-remove">Payment Options</h4>
+              <h4 class="uk-h4 uk-margin-remove">Contact Us</h4>
+            </div>
+          </div>
+        </div>
+        <section class="uk-section uk-padding-remove-bottom">
+          <div class="uk-child-width-1-2@s" uk-grid>
+            <div class="uk-flex uk-flex-center">
+              &copy; 2020 AfTop
+            </div>
+            <div class="uk-flex uk-flex-center">
+              <ul
+                class="uk-height-1-1 uk-iconnav uk-flex-around uk-flex-middle"
+              >
+                <li>
+                  <a
+                    href="https://facebook.com/AfTop-Movies-And-Tv-Series-100273788376847"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    uk-icon="icon: facebook"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://twitter.com/AfTop_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    uk-icon="icon: twitter"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.youtube.com/channel/UCR5vCj4_ANZJte6emXtrMIw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    uk-icon="icon: youtube"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://instagram.com/aftop_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    uk-icon="icon: instagram"
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <div id="signin-modal" class="uk-flex-top" uk-modal>
+      <div
+        class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded"
+      >
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div>
+          <form id="signin_form">
+            <legend class="uk-legend">Sign In</legend>
+            <div class="uk-margin">
+              <input
+                class="uk-input"
+                required
+                type="text"
+                id="email"
+                placeholder="Email"
+              />
+            </div>
+            <div class="uk-margin">
+              <input
+                class="uk-input"
+                required
+                type="password"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+            <div class="uk-margin uk-text-right">
+              <button
+                type="submit"
+                class="uk-button uk-button-default uk-border-rounded"
+              >
+                Sign In
+              </button>
+            </div>
+          </form>
+          <p class="uk-text-center">
+            Don't have an account?
+            <span class="uk-text-primary" uk-toggle="target: #signup-modal">
+              <a class="uk-link-reset">Sign Up</a>
+            </span>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="signup-modal" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded">
-      <button class="uk-modal-close-default" type="button" uk-close></button>
-      <div>
-        <form id="signup_form">
-          <legend class="uk-legend">Sign Up</legend>
-          <div class="uk-margin">
-            <input class="uk-input" type="text" id="email_s" placeholder="Email" />
-          </div>
-          <div class="uk-margin">
-            <input class="uk-input" type="password" id="password_s" placeholder="Password" />
-          </div>
-          <div class="uk-margin uk-text-right">
-            <button type="submit" class="uk-button uk-button-default uk-border-rounded">
-              Sign Up
-            </button>
-          </div>
-        </form>
-        <p class="uk-text-center">
-          Have an account?
-          <span class="uk-text-primary" uk-toggle="target: #signin-modal">
-            <a class="uk-link-reset">Sign In</a>
-          </span>
-        </p>
+    <div id="signup-modal" class="uk-flex-top" uk-modal>
+      <div
+        class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded"
+      >
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div>
+          <form id="signup_form">
+            <legend class="uk-legend">Sign Up</legend>
+            <div class="uk-margin">
+              <input
+                class="uk-input"
+                type="text"
+                id="email_s"
+                placeholder="Email"
+              />
+            </div>
+            <div class="uk-margin">
+              <input
+                class="uk-input"
+                type="password"
+                id="password_s"
+                placeholder="New Password"
+              />
+            </div>
+            <div class="uk-margin uk-text-right">
+              <button
+                type="submit"
+                class="uk-button uk-button-default uk-border-rounded"
+              >
+                Sign Up
+              </button>
+            </div>
+          </form>
+          <p class="uk-text-center">
+            Have an account?
+            <span class="uk-text-primary" uk-toggle="target: #signin-modal">
+              <a class="uk-link-reset">Sign In</a>
+            </span>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <!-- <script src="/__/firebase/7.14.6/firebase-app.js"></script> -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- <script src="/__/firebase/7.14.6/firebase-app.js"></script> -->
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
 
-  <!-- Initialize Firebase -->
-  <!-- <script src="/__/firebase/init.js"></script> -->
-  <script>
-    $(document).ready(function() {});
+    <!-- Initialize Firebase -->
+    <!-- <script src="/__/firebase/init.js"></script> -->
+    <script>
+      $(document).ready(function () {});
 
-    $('#signin_form').on('submit', function(e) {
-      e.preventDefault();
-      var password = document.getElementById('password').value
-      var email = document.getElementById('email').value
+      $("#signin_form").on("submit", function (e) {
+        e.preventDefault();
+        var password = document.getElementById("password").value;
+        var email = document.getElementById("email").value;
 
-      signin(password, email);
-    });
+        signin(password, email);
+      });
 
-    $('#signup_form').on('submit', function(e) {
-      e.preventDefault();
-      var password = document.getElementById('password_s').value
-      var email = document.getElementById('email_s').value
+      $("#signup_form").on("submit", function (e) {
+        e.preventDefault();
+        var password = document.getElementById("password_s").value;
+        var email = document.getElementById("email_s").value;
 
-      signup(password, email);
-    });
+        signup(password, email);
+      });
 
-    function signin(password, email) {
-      fetch('/signin', {
-          method: 'POST',
+      function signin(password, email) {
+        fetch("/signin", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             user: {
               password: password,
-              email: email
-            }
-          })
-        }).then(response => response.text())
-        .then(response => checkError(response));
-    }
-
-    function signup(password, email) {
-      fetch('/signup', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            user: {
-              password: password,
-              email: email
-            }
-          })
-        }).then(response => response.text())
-        .then(response => checkError(response));
-    }
-
-
-    function checkError(response) {
-
-      switch (response) {
-        case 'not signin':
-          $('#toggle').click();
-          break;
-        case 'Wrong password':
-          alert('Wrong password.');
-          break;
-        case 'no user':
-          alert('User not registerd.');
-          break;
-        case 'success':
-          $('#signin-modal').hide();
-          break;
-        case 'user created':
-          alert('Welcome to Aftop.');
-          $('#signup-modal').hide();
-          break;
-        case 'user exists':
-          alert('User exists.');
-          break;
-        case 'user error':
-          alert('Please try again later.');
-          break;
-        default:
-
+              email: email,
+            },
+          }),
+        })
+          .then((response) => response.text())
+          .then((response) => checkError(response));
       }
 
-    }
-  </script>
-</body>
+      function signup(password, email) {
+        fetch("/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user: {
+              password: password,
+              email: email,
+            },
+          }),
+        })
+          .then((response) => response.text())
+          .then((response) => checkError(response));
+      }
 
+      function checkError(response) {
+        switch (response) {
+          case "not signin":
+            $("#toggle").click();
+            break;
+          case "Wrong password":
+            alert("Wrong password.");
+            break;
+          case "no user":
+            alert("User not registerd.");
+            break;
+          case "success":
+            $("#signin-modal").hide();
+            break;
+          case "user created":
+            alert("Welcome to Aftop.");
+            $("#signup-modal").hide();
+            break;
+          case "user exists":
+            alert("User exists.");
+            break;
+          case "user error":
+            alert("Please try again later.");
+            break;
+          default:
+        }
+      }
+    </script>
+  </body>
 </html>
