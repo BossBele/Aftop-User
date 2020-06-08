@@ -217,7 +217,7 @@
       <div class="uk-container uk-margin-auto uk-child-width-1-2" uk-grid>
         <button class="uk-button uk-button-default">Trailer</button>
         <button id="full_movie" class="uk-button uk-button-default">Full Movie</button>
-        <button class="uk-button uk-button-default" uk-toggle="target: #bundle-modal">Payment</button>
+        <button style="display:none;" id="pay" class="uk-button uk-button-default" uk-toggle="target: #bundle-modal">Payment</button>
       </div>
     </section>
     <section class="uk-section-small uk-section-default">
@@ -537,6 +537,10 @@
           break;
         case 'user error':
           alert('Please try again later.');
+          break;
+        case 'not_subscribed':
+          $('#signin-modal').hide();
+          $('#pay').click();
           break;
         default:
 

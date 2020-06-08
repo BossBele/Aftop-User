@@ -8,6 +8,7 @@ let downloading = false;
 let playing_full_video = false;
 
 const credential = require('./connection/firebase_credential');
+const client_auth = require('./client_authentication');
 const db = credential.firestore();
 
 // set_subscription();
@@ -62,10 +63,9 @@ function get_current_time() {
     return d.getTime() / 1000;
 }
 
-exports.set_subscription = function(firebase) {
+exports.set_subscription = function(firebase,response) {
 
     let current_time = get_current_time();
-    console.log(get_user_email(firebase));
     let query = db.collection(VOUCHERS_COLLECTION)
         .where("customerId", "==", get_user_email(firebase))
         .where("end", ">", current_time)
@@ -73,7 +73,7 @@ exports.set_subscription = function(firebase) {
         .limit(1);
 
     query.get().then(function (doc) {
-        update_info(doc);
+        update_info(doc,response);
     }).catch(function (error) {
         console.log("Error getting document:", error);
     });
@@ -83,14 +83,15 @@ function my_subscription_info() {
 
 }
 
-function update_info(doc) {
+function update_info(doc,response) {
     is_user_subscribed = doc.exists;
     if (is_user_subscribed) {
         let data = doc.data();
         end_time = data.end;
+    }else{
+      client_auth.data_sub(response,'not_subscribed');
     }
 
-    console.log("subscription is set");;
 }
 
 function get_user_email(firebase) {

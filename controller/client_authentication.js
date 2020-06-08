@@ -9,7 +9,7 @@ exports.signin = function(request, response) {
       // User is signed in
       // var email = user.email;
       //set subscription
-      subscription.set_subscription(firebase);
+      subscription.set_subscription(firebase,response);
     } else {
       // console.log('not signin');
       firebase.auth().signInWithEmailAndPassword(request.body.user.email, request.body.user.password).catch(function(error) {
@@ -46,4 +46,8 @@ exports.signup = function(request, response) {
 
 function sendData(response,data) {
   response.send(data);
+}
+
+exports.data_sub = function(response,data){
+  return sendData(response,data);
 }
