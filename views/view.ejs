@@ -491,11 +491,7 @@
             <form id="signin_form">
               <legend class="uk-legend">Sign In</legend>
               <div class="uk-margin">
-              <a id="google_signin"><img style="height: 72px;" src="/media/google_signin_buttons/web/2x/btn_google_signin_light_normal_web@2x.png" /></a>
-                  ><img
-                    style="height: 72px;"
-                    src="/media/google_signin_buttons/web/2x/btn_google_signin_light_normal_web@2x.png"
-                /></a>
+                <a id="google_signin"><img style="height: 72px;" src="/media/google_signin_buttons/web/2x/btn_google_signin_light_normal_web@2x.png" /></a>
               </div>
               <!-- <div class="uk-margin uk-text-right">
              <button type="submit" class="uk-button uk-button-default uk-border-rounded">
@@ -781,16 +777,17 @@
 
     function signin(password) {
       // console.log(password);
-
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            password
-          }),
-        })
-          .then((response) => response.text())
-          .then((response) => checkError(response));
+      fetch("/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          password,
+        }),
+      })
+        .then((response) => response.text())
+        .then((response) => checkError(response));
       }
 
       function signup(password, email) {
