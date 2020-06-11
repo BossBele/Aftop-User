@@ -63,11 +63,11 @@ function get_current_time() {
     return d.getTime() / 1000;
 }
 
-exports.set_subscription = function(firebase,response) {
+exports.set_subscription = function(email,response) {
 
     let current_time = get_current_time();
     let query = db.collection(VOUCHERS_COLLECTION)
-        .where("customerId", "==", get_user_email(firebase))
+        .where("customerId", "==", email)
         .where("end", ">", current_time)
         .orderBy("end", "desc")
         .limit(1);
