@@ -42,8 +42,8 @@
   height: 200px;
 }
 .video-js .vjs-tech {
-  top: inherit !important;
-  left: inherit !important;
+  /* top: inherit !important;
+  left: inherit !important; */
 }
 .uk-offcanvas-bar {
   position: absolute;
