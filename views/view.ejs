@@ -491,9 +491,9 @@
             <form id="signin_form">
               <legend class="uk-legend">Sign In</legend>
               <div class="uk-margin">
-                <a
+                <a id="google_signin"
                   ><img
-                    style="height: 60px;"
+                    style="height: 72px;"
                     src="/media/google_signin_buttons/web/2x/btn_google_signin_light_normal_web@2x.png"
                 /></a>
               </div>
@@ -662,6 +662,71 @@
         </div>
       </div>
     </main>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use -->
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyBICWgb5edTIYgmO2NOitLWNPokm6ZqFbs",
+        authDomain: "flix-10157.firebaseapp.com",
+        databaseURL: "https://flix-10157.firebaseio.com",
+        projectId: "flix-10157",
+        storageBucket: "flix-10157.appspot.com",
+        messagingSenderId: "533006120013",
+        appId: "1:533006120013:web:ee4ce599eece6a6a785804",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      function gmailSignIn() {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase
+          .auth()
+          .signInWithPopup(provider)
+          .then(function (result) {
+            var token = result.credential.accessToken;
+            var user = result.user;
+            userVerification(user.email, user.emailVerified);
+          })
+          .catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            var email = error.email;
+            var credential = error.credential;
+
+            console.log(errorMessage);
+          });
+      }
+
+      $("#google_signin").on("click", function () {
+        gmailSignIn();
+      });
+
+      var data = {};
+      var total = 0;
+      function userVerification(email, isVerified) {
+        data.email = email;
+        data.isVerified = isVerified;
+        total++;
+        if (total == 1) {
+          try {
+            signin(data);
+          } catch (e) {
+          } finally {
+            signin(data);
+          }
+        }
+      }
+    </script>
+
     <script>
       $(document).ready(function () {
         videojs("video-view").ready(function () {
@@ -704,17 +769,15 @@
         signup(password, email);
       });
 
-      function signin(password, email) {
+      function signin(password) {
+        // console.log(password);
         fetch("/signin", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            user: {
-              password: password,
-              email: email,
-            },
+            password,
           }),
         })
           .then((response) => response.text())
