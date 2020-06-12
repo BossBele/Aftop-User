@@ -67,18 +67,10 @@
                   class="uk-margin-small-right"
                   type="button"
                   uk-icon="icon: user; ratio: 1.5"
-                  uk-toggle="target: #signin-modal"
+                  uk-toggle="target: #offcanvas-slide"
                 ></button>
               </li>
-              <li class="uk-margin-small-right uk-hidden@s">
-                <div class="uk-flex uk-flex-middle">
-                  <button
-                    class=""
-                    type="button"
-                    uk-icon="icon: menu; ratio: 1.5"
-                    uk-toggle="target: #offcanvas-slide"
-                  ></button>
-                </div>
+              <li class="">
                 <div
                   id="offcanvas-slide"
                   class=""
@@ -93,12 +85,27 @@
                     <ul
                       class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical uk-padding uk-text-left"
                     >
-                      <li class=""><a href="#">Movies</a></li>
-                      <li class=""><a href="#">Series</a></li>
-                      <li class=""><a href="#">Share</a></li>
-                      <li class=""><a href="#">Feedback</a></li>
-                      <li class=""><a href="#">Terms &amp; Policies</a></li>
-                      <li class=""><a href="#">Sign Out</a></li>
+                      <li class="">
+                        <a href="#"><small>Movies</small></a>
+                      </li>
+                      <li class="">
+                        <a href="#"><small>Series</small></a>
+                      </li>
+                      <li class="">
+                        <a href="#"><small>My Subscriptions</small></a>
+                      </li>
+                      <li class="">
+                        <a href="#"><small>Share</small></a>
+                      </li>
+                      <li class="">
+                        <a href="#"><small>Feedback</small></a>
+                      </li>
+                      <li class="">
+                        <a href="#"><small>Terms &amp; Policies</small></a>
+                      </li>
+                      <li class="">
+                        <a href="#"><small>Sign Out</small></a>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -294,6 +301,7 @@
       <section class="uk-position-relative">
         <div class="uk-cover-container uk-height-large uk-width-1-1">
           <video
+            style="object-fit: cover;"
             src="/media/coverr-woman-enjoys-lake-view-1575195715443.mp4"
             autoplay
             loop
@@ -304,7 +312,7 @@
         </div>
       </section>
       <section
-        class="uk-section-small uk-section-default uk-padding-remove-bottom"
+        class="uk-section-small uk-section-default uk-container uk-padding-remove-bottom"
       >
         <div class="uk-container-small uk-margin-auto">
           <small class="">Sponsored</small>
@@ -481,66 +489,7 @@
         </div>
       </section>
     </main>
-    <footer class="uk-section-muted">
-      <div class="uk-section uk-container">
-        <div class="">
-          <div class="uk-flex uk-flex-center uk-text-center">
-            <div class="">
-              <h4 class="uk-h4 uk-margin-remove">GET HELP</h4>
-              <h4 class="uk-h4 uk-margin-remove">Privacy Policy</h4>
-              <h4 class="uk-h4 uk-margin-remove">Terms</h4>
-              <h4 class="uk-h4 uk-margin-remove">Payment Options</h4>
-              <h4 class="uk-h4 uk-margin-remove">Contact Us</h4>
-            </div>
-          </div>
-        </div>
-        <section class="uk-section uk-padding-remove-bottom">
-          <div class="uk-child-width-1-2@s" uk-grid>
-            <div class="uk-flex uk-flex-center">
-              &copy; 2020 AfTop
-            </div>
-            <div class="uk-flex uk-flex-center">
-              <ul
-                class="uk-height-1-1 uk-iconnav uk-flex-around uk-flex-middle"
-              >
-                <li>
-                  <a
-                    href="https://facebook.com/AfTop-Movies-And-Tv-Series-100273788376847"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    uk-icon="icon: facebook"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://twitter.com/AfTop_"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    uk-icon="icon: twitter"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.youtube.com/channel/UCR5vCj4_ANZJte6emXtrMIw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    uk-icon="icon: youtube"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://instagram.com/aftop_"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    uk-icon="icon: instagram"
-                  ></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
-    </footer>
+    <%- include('partials/footer.ejs') %>
     <div id="signin-modal" class="uk-flex-top" uk-modal>
       <div
         class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded"
