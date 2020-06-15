@@ -14,5 +14,8 @@ router.get("/watch_movie/:movie_name", video.watch_movie);
 router.get("/terms", (req, res) => {
   res.render("terms.ejs");
 });
+router.get("/privacy", (req, res) => {
+  res.render("privacy.ejs");
+});
 
 module.exports = router;
