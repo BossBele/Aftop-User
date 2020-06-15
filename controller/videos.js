@@ -29,7 +29,7 @@ exports.series = function(series_id, genre) {
     trailer = db.collection('movies').where('video_id', '==', series_id);
     movies_action = db.collection('movies')
       .where('launched', '==', true)
-      .where('genre', 'array-contains', 'Action')
+      .where('genre', 'array-contains-any', genre.split(','))
       .orderBy('launch_date', 'desc');
     data.trailer = trailer;
     data.movies = movies_action;
@@ -73,7 +73,7 @@ exports.animation_movie = function() {
   let movies_animation;
   movies_animation = db.collection('movies')
   .where('launched', '==', true)
-  .where('genre', 'array-contains', 'Action')
+  .where('genre', 'array-contains', 'Animation')
     .orderBy('launch_date', 'desc');
 
   return movies_animation;
@@ -83,7 +83,7 @@ exports.comedy_movie = function() {
   let movies_comedy;
   movies_comedy = db.collection('movies')
   .where('launched', '==', true)
-  .where('genre', 'array-contains', 'Action')
+  .where('genre', 'array-contains', 'Comedy')
     .orderBy('launch_date', 'desc');
 
   return movies_comedy;
@@ -93,7 +93,7 @@ exports.crime_movie = function() {
   let movies_crime;
   movies_crime = db.collection('movies')
   .where('launched', '==', true)
-  .where('genre', 'array-contains', 'Action')
+  .where('genre', 'array-contains', 'Crime')
     .orderBy('launch_date', 'desc');
 
   return movies_crime;
@@ -103,7 +103,7 @@ exports.drama_movie = function() {
   let movies_drama;
   movies_drama = db.collection('movies')
   .where('launched', '==', true)
-  .where('genre', 'array-contains', 'Action')
+  .where('genre', 'array-contains', 'Drama')
     .orderBy('launch_date', 'desc');
 
   return movies_drama;
@@ -113,7 +113,7 @@ exports.fantasy_movie = function() {
   let movies_fantasy;
   movies_fantasy = db.collection('movies')
   .where('launched', '==', true)
-  .where('genre', 'array-contains', 'Action')
+  .where('genre', 'array-contains', 'Fantasy')
     .orderBy('launch_date', 'desc');
 
   return movies_fantasy;
@@ -123,7 +123,7 @@ exports.historical_movie = function() {
   let movies_historical;
   movies_historical = db.collection('movies')
   .where('launched', '==', true)
-  .where('genre', 'array-contains', 'Action')
+  .where('genre', 'array-contains', 'Historical')
     .orderBy('launch_date', 'desc');
 
   return movies_historical;
@@ -133,7 +133,7 @@ exports.horror_movie = function() {
   let movies_horror;
   movies_horror = db.collection('movies')
   .where('launched', '==', true)
-  .where('genre', 'array-contains', 'Action')
+  .where('genre', 'array-contains', 'Horror')
     .orderBy('launch_date', 'desc');
 
   return movies_horror;
@@ -143,7 +143,7 @@ exports.romance_movie = function() {
   let movies_romance;
   movies_romance = db.collection('movies')
   .where('launched', '==', true)
-  .where('genre', 'array-contains', 'Action')
+  .where('genre', 'array-contains', 'Romance')
     .orderBy('launch_date', 'desc');
 
   return movies_romance;
@@ -153,7 +153,7 @@ exports.thriller_movie = function() {
   let movies_thriller;
   movies_thriller = db.collection('movies')
   .where('launched', '==', true)
-  .where('genre', 'array-contains', 'Action')
+  .where('genre', 'array-contains', 'Thriller')
     .orderBy('launch_date', 'desc');
 
   return movies_thriller;
@@ -163,7 +163,7 @@ exports.western_movie = function() {
   let movies_western;
   movies_western = db.collection('movies')
   .where('launched', '==', true)
-  .where('genre', 'array-contains', 'Action')
+  .where('genre', 'array-contains', 'Western')
     .orderBy('launch_date', 'desc');
 
   return movies_western;
