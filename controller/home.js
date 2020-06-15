@@ -217,7 +217,6 @@ function view_all_movie_c(reference_movies_latest, all_movies_latest, tokens, or
 
 function view_movie(reference_movies_latest, movies_view, tokens, original_name, response, key, reference) {
   //for all_series
-
   reference_movies_latest.get()
     .then((snapshot) => {
       arrayObject(snapshot);
@@ -313,220 +312,39 @@ function view_movie(reference_movies_latest, movies_view, tokens, original_name,
 
           if (series[0].video_id) {
             // movies
-            switch (series[0].genre) {
-              case "Action":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              case "Animation":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              case "Comedy":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              case "Crime":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              case "Drama":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              case "Historical":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              case "Fantasy":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              case "Horror":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              case "Romance":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              case "Thriller":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              case "Western":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.similar_video,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              default:
-
-            }
+            response.render('view.ejs', {
+              video: series,
+              similar_video: index_media.similar_video,
+              movies_action_videos: index_media.action_movie,
+              movies_horror_videos: index_media.horror_movie,
+              movies_max_like: index_media.max_like_movie,
+              movies_max_like_all: index_media.max_like_movie_all,
+              drama: index_media.drama,
+              historical: index_media.historical,
+              fantasy: index_media.fantasy,
+              horror: index_media.horror,
+              romance: index_media.romance,
+              thriller: index_media.thriller,
+              western: index_media.western
+            });
           } else {
             // series
-            switch (series[0].genre) {
-              case "Action":
-                response.render('view.ejs', {
-                  video: series,
-                  similar_video: index_media.series,
-                  movies_action_videos: index_media.action_movie,
-                  movies_horror_videos: index_media.horror_movie,
-                  movies_max_like: index_media.max_like_movie,
-                  movies_max_like_all: index_media.max_like_movie_all,
-                  drama: index_media.drama,
-                  historical: index_media.historical,
-                  fantasy: index_media.fantasy,
-                  horror: index_media.horror,
-                  romance: index_media.romance,
-                  thriller: index_media.thriller,
-                  western: index_media.western
-                });
-                break;
-              default:
-
-            }
+            response.render('view.ejs', {
+              video: series,
+              similar_video: index_media.series,
+              movies_action_videos: index_media.action_movie,
+              movies_horror_videos: index_media.horror_movie,
+              movies_max_like: index_media.max_like_movie,
+              movies_max_like_all: index_media.max_like_movie_all,
+              drama: index_media.drama,
+              historical: index_media.historical,
+              fantasy: index_media.fantasy,
+              horror: index_media.horror,
+              romance: index_media.romance,
+              thriller: index_media.thriller,
+              western: index_media.western
+            });
+            // }
           }
 
         }
