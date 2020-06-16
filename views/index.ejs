@@ -324,15 +324,13 @@
             uk-slideshow="autoplay: true; max-height: 300; animation: fade"
           >
             <ul class="uk-slideshow-items">
+              <% adverts.forEach(function(video){ %>
               <li>
-                <img src="/media/photo.jpg" alt="" uk-cover />
+                <img
+                src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/adverts%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
+                alt="" uk-cover />
               </li>
-              <li>
-                <img src="/media/dark.jpg" alt="" uk-cover />
-              </li>
-              <li>
-                <img src="/media/light.jpg" alt="" uk-cover />
-              </li>
+              <% }) %>
             </ul>
             <a
               class="uk-position-center-left uk-position-small uk-hidden-hover"

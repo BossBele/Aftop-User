@@ -5,6 +5,7 @@ let all_series = [];
 let all_movies_latest = [];
 let movies_view = [];
 let all_movies_c = [];
+let all_adverts = [];
 let tokens = null;
 let original_name = null;
 let LOADING_COMPLETE = false;
@@ -33,6 +34,7 @@ let reference_movie_horror_all = videos.horror_movie();
 let reference_movie_romance_all = videos.romance_movie();
 let reference_movie_thriller_all = videos.thriller_movie();
 let reference_movie_western_all = videos.western_movie();
+let reference_adverts = videos.all_videos().adverts;
 
 exports.index = function(request, response) {
 
@@ -357,6 +359,63 @@ function view_movie(reference_movies_latest, movies_view, tokens, original_name,
   //end for all_series
 }
 
+function view_adverts(reference_adverts, all_adverts, tokens, original_name, response, key) {
+  //for all_series
+  reference_adverts.get()
+    .then((snapshot) => {
+      arrayObject(snapshot);
+    })
+    .catch((err) => {
+      console.log('Error getting documents', err);
+    });
+
+
+  function arrayObject(snapshot) {
+    snapshot.forEach((doc) => {
+      all_adverts.push(doc.data())
+    });
+
+    let count = 0;
+
+    if (all_adverts.length === 0) {
+      bindToken(null, null, all_adverts);
+    } else {
+      all_adverts.forEach((data) => {
+        bucket.file(data.advert).get().then(function(data) {
+          bindToken(data, count, all_adverts);
+          count++;
+        });
+      });
+    }
+
+  }
+
+  function bindToken(data, index, all_adverts) {
+
+    if (all_adverts.length === 0) {
+      toView(response, key, all_adverts);
+    } else {
+      const file = data[0];
+
+      all_adverts.forEach((info) => {
+        if (info.advert === file.name) {
+          tokens = file.metadata.metadata.firebaseStorageDownloadTokens;
+          original_name = file.name.split('/')[1];
+          info.tokens = tokens;
+          info.file_name = original_name;
+        }
+      });
+
+      if (all_adverts.length === index + 1) {
+        toView(response, key, all_adverts);
+      }
+    }
+
+  }
+  //end for all_series
+}
+
+
 function toView(response, key, videos) {
   if (index_media.hasOwnProperty(key) === false) {
     index_media[key] = videos;
@@ -424,6 +483,11 @@ function toView(response, key, videos) {
     view_all_movie(reference_movies_max_like_all, all_movies_latest, tokens, original_name, response, "max_like_movie_all");
 
   } else if (Object.keys(index_media).length === 13) {
+    LOADING_COMPLETE = false;
+    //load adverts
+    view_adverts(reference_adverts, all_adverts, tokens, original_name, response, "adverts");
+
+  } else if (Object.keys(index_media).length === 14) {
     response.render('index.ejs', {
       series_videos: index_media.series,
       movies_videos: index_media.movies_latest,
@@ -437,7 +501,8 @@ function toView(response, key, videos) {
       horror: index_media.horror,
       romance: index_media.romance,
       thriller: index_media.thriller,
-      western: index_media.western
+      western: index_media.western,
+      adverts: index_media.adverts
     });
 
   }
