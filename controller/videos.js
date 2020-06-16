@@ -246,6 +246,8 @@ function getVideos(db) {
   series_all = db.collection('series')
     .orderBy('release_date', 'desc');
 
+    adverts = db.collection('adverts');
+
 
   data.series_all = series_all;
   data.movies_latest = movies_latest;
@@ -262,6 +264,7 @@ function getVideos(db) {
   data.movie_romance = movie_romance;
   data.movie_thriller = movie_thriller;
   data.movie_western = movie_western;
+  data.adverts = adverts;
 
   return data;
 
