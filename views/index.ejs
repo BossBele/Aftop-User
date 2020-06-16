@@ -47,7 +47,14 @@
         <nav class="uk-navbar uk-width-1-1" uk-navbar="mode: click">
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav uk-text-bold">
-              <li class="uk-active"><a href="/">Logo</a></li>
+              <li class="uk-active">
+                <a href="/"
+                  ><img
+                    style="height: 65px; border: 1px solid #e0e0e0;"
+                    class="uk-border-circle"
+                    src="/media/logo.png"
+                /></a>
+              </li>
               <li>
                 <a href="/">Home</a>
               </li>
@@ -298,17 +305,56 @@
     </header>
     <main id="content">
       <!-- <section style="height:80px"></section> -->
-      <section class="uk-position-relative">
-        <div class="uk-cover-container uk-height-large uk-width-1-1">
-          <video
-            style="object-fit: cover;"
-            src="/media/coverr-woman-enjoys-lake-view-1575195715443.mp4"
-            autoplay
-            loop
-            muted
-            playsinline
-            uk-cover
-          ></video>
+      <section class="uk-cover-container uk-height-large uk-width-1-1">
+        <div
+          class="uk-position-relative uk-cover-container uk-height-1-1 uk-visible-toggle uk-light"
+          tabindex="-1"
+          uk-slideshow="autoplay: true;"
+        >
+          <ul class="uk-slideshow-items">
+            <li>
+              <img src="/media/photo.jpg" alt="" uk-cover />
+              <div class="uk-position-center-right uk-margin-medium-right">
+                <a
+                  href="/view"
+                  class="uk-button uk-button-primary uk-border-rounded"
+                  >Watch Movie</a
+                >
+              </div>
+            </li>
+            <li>
+              <img src="/media/dark.jpg" alt="" uk-cover />
+              <div class="uk-position-center-right uk-margin-medium-right">
+                <a
+                  href="/view"
+                  class="uk-button uk-button-primary uk-border-rounded"
+                  >Watch Movie</a
+                >
+              </div>
+            </li>
+            <li>
+              <img src="/media/light.jpg" alt="" uk-cover />
+              <div class="uk-position-center-right uk-margin-medium-right">
+                <a
+                  href="/view"
+                  class="uk-button uk-button-primary uk-border-rounded"
+                  >Watch Movie</a
+                >
+              </div>
+            </li>
+          </ul>
+          <a
+            class="uk-position-center-left uk-position-small uk-hidden-hover"
+            href="#"
+            uk-slidenav-previous
+            uk-slideshow-item="previous"
+          ></a>
+          <a
+            class="uk-position-center-right uk-position-small uk-hidden-hover"
+            href="#"
+            uk-slidenav-next
+            uk-slideshow-item="next"
+          ></a>
         </div>
       </section>
       <section
