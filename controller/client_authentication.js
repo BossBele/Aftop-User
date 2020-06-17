@@ -2,7 +2,7 @@ const firebase = require('./connection/firebase_client_auth');
 const subscription = require('./subscription')
 
 exports.signin = function(request, response) {
-  
+
   if (request.body.password.isVerified == true) {
     subscription.set_subscription(request.body.password.email,response);
   }

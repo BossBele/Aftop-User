@@ -564,6 +564,7 @@
               <legend class="uk-legend">Choose Bundle</legend>
               <div class="uk-margin">
                 <button
+                  id="siku"
                   type="button"
                   class="uk-button uk-button-default uk-border-rounded"
                   uk-toggle="target: #payment-modal"
@@ -574,6 +575,7 @@
               <div class="uk-margin">
                 <button
                   type="button"
+                  id="wiki"
                   class="uk-button uk-button-default uk-border-rounded"
                   uk-toggle="target: #payment-modal"
                 >
@@ -582,6 +584,7 @@
               </div>
               <div class="uk-margin">
                 <button
+                  id="mwezi"
                   type="button"
                   class="uk-button uk-button-default uk-border-rounded"
                   uk-toggle="target: #payment-modal"
@@ -607,6 +610,7 @@
               <legend class="uk-legend">Choose Bundle</legend>
               <div class="uk-margin">
                 <button
+                  id="airtel"
                   type="button"
                   class="uk-button uk-button-default uk-border-rounded"
                   uk-toggle="target: #payment-modal-number"
@@ -617,6 +621,7 @@
               </div>
               <div class="uk-margin">
                 <button
+                  id="tigo"
                   type="button"
                   class="uk-button uk-button-default uk-border-rounded"
                   uk-toggle="target: #payment-modal-number"
@@ -651,7 +656,8 @@
               </div>
               <div class="uk-margin uk-text-right">
                 <button
-                  type="submit"
+                  id="subscribe"
+                  type="button"
                   class="uk-button uk-button-default uk-border-rounded"
                 >
                   Pay
@@ -707,7 +713,18 @@
       }
 
       $("#google_signin").on("click", function () {
-        gmailSignIn();
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in check subscription
+            console.log('signin');
+            data.email = user.email;
+            data.isVerified = user.emailVerified;
+            signin(data);
+            bundle.buyer_email = user.email;
+          } else {
+                gmailSignIn();
+          }
+        });
       });
 
       var data = {};
@@ -832,6 +849,46 @@
           default:
         }
       }
+
+      var bundle = {};
+
+      $('#siku').on('click',function() {
+        bundle.merchant_remarks = 'Daily';
+        bundle.amount = '1000';
+      });
+
+      $('#wiki').on('click',function() {
+        bundle.merchant_remarks = 'Weekly';
+        bundle.amount = '7000';
+      });
+
+      $('#mwezi').on('click',function() {
+        bundle.merchant_remarks = 'Monthly';
+        bundle.amount = '15000';
+      });
+
+      $('#airtel').on('click',function() {
+        bundle.account = 'airtel';
+      });
+
+      $('#tigo').on('click',function() {
+        bundle.account = 'tigo';
+      });
+
+      $('#subscribe').on('click',function() {
+        bundle.buyer_phone = document.getElementById('pay_phone').value;
+        // timestamp
+        let d = new Date();
+        let timestamp = d.getTime();
+        bundle.order_id = bundle.buyer_email+'-'+timestamp;
+        bundle.transid = bundle.order_id;
+        bundle.no_of_items = '1';
+        bundle.request_type = 'create-order';
+
+        console.log(bundle);
+      });
+
+
     </script>
   </body>
 </html>
