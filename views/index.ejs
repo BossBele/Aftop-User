@@ -41,13 +41,20 @@
 
   <body class="uk-container-large uk-margin-auto uk-position-relative">
     <header
-      uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-box-shadow-small bg-white; cls-inactive: uk-navbar-transparent uk-position-top-left uk-position-z-index; top: section"
+      uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-box-shadow-small bg-white; cls-inactive: bg-white uk-position-z-index; top: section"
     >
       <div class="uk-navbar-container">
         <nav class="uk-navbar uk-width-1-1" uk-navbar="mode: click">
           <div class="uk-navbar-left">
             <ul class="uk-navbar-nav uk-text-bold">
-              <li class="uk-active"><a href="/">Logo</a></li>
+              <li class="uk-active">
+                <a href="/"
+                  ><img
+                    style="height: 65px; border: 1px solid #e0e0e0;"
+                    class="uk-border-circle"
+                    src="/media/logo.png"
+                /></a>
+              </li>
               <li>
                 <a href="/">Home</a>
               </li>
@@ -94,16 +101,19 @@
                         <a href="#"><small>Series</small></a>
                       </li>
                       <li class="">
-                        <a href="#"><small>My Subscriptions</small></a>
+                        <a
+                          href="#"
+                          uk-tooltip="You are subscribed to the
+                        <b>Weekly</b> subscription. / You have no
+                        subscriptions yet."
+                          ><small>My Subscriptions</small></a
+                        >
                       </li>
                       <li class="">
                         <a href="#"><small>Share</small></a>
                       </li>
                       <li class="">
                         <a href="#"><small>Feedback</small></a>
-                      </li>
-                      <li class="">
-                        <a href="#"><small>Terms &amp; Policies</small></a>
                       </li>
                       <li class="">
                         <a href="#" id="sign_out"><small>Sign Out</small></a>
@@ -300,27 +310,15 @@
     </header>
     <main id="content">
       <!-- <section style="height:80px"></section> -->
-      <section class="uk-position-relative">
-        <div class="uk-cover-container uk-height-large uk-width-1-1">
-          <video
-            style="object-fit: cover;"
-            src="/media/coverr-woman-enjoys-lake-view-1575195715443.mp4"
-            autoplay
-            loop
-            muted
-            playsinline
-            uk-cover
-          ></video>
-        </div>
-      </section>
       <section
-        class="uk-section-small uk-section-default uk-container uk-padding-remove-bottom"
+        class="uk-section uk-section-default uk-container uk-padding-remove-bottom"
       >
         <div class="uk-container-small uk-margin-auto">
           <small class="">Sponsored</small>
         </div>
         <div class="uk-container-small uk-margin-auto">
           <div
+            style="border: 1px solid #e0e0e0;"
             class="uk-cover-container uk-height-small uk-border-rounded uk-visible-toggle uk-light"
             tabindex="-1"
             uk-slideshow="autoplay: true; max-height: 300; animation: fade"
@@ -329,8 +327,10 @@
               <% adverts.forEach(function(video){ %>
               <li>
                 <img
-                src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/adverts%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
-                alt="" uk-cover />
+                  src="https://firebasestorage.googleapis.com/v0/b/flix-10157.appspot.com/o/adverts%2F<%= video.file_name %>?alt=media&token=<%= video.tokens %>"
+                  alt=""
+                  uk-cover
+                />
               </li>
               <% }) %>
             </ul>
